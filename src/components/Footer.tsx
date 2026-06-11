@@ -52,8 +52,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
                       target.style.display = 'none';
                       const parent = target.parentElement;
                       if (parent) {
-                        parent.textContent = 'Eleve Leads';
-                        parent.className = 'text-lg font-bold text-white';
+                        parent.innerHTML = '<span class="text-lg font-bold text-white">Eleve Leads</span>';
                       }
                     };
                   }}

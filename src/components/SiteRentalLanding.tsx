@@ -208,7 +208,7 @@ const SiteRentalLanding = () => {
     e.preventDefault();
     const message = `Olá! Quero contratar o plano ${formData.plano}.\n\nNome: ${formData.nome}\nEmail: ${formData.email}\nTelefone: ${formData.telefone}`;
     const whatsappUrl = `https://wa.me/5194373376?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    window.open(whatsappUrl, '_blank');
   };
 
   const handleWhatsApp = (planName?: string) => {
@@ -216,7 +216,7 @@ const SiteRentalLanding = () => {
       ? `Olá! Quero saber mais sobre o plano ${planName} de aluguel de sites.`
       : 'Olá! Quero saber mais sobre o aluguel de sites para clínicas de fisioterapia.';
     const whatsappUrl = `https://wa.me/5194373376?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    window.open(whatsappUrl, '_blank');
   };
 
   return (

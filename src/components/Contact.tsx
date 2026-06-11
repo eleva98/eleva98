@@ -173,7 +173,7 @@ const Contact = () => {
               <a
                 href="https://wa.me/5194373376"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
               >
                 <Phone className="w-5 h-5 mr-2" />
