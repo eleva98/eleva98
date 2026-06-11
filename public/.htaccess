@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redireciona todas as requisições para arquivos e pastas que não existem para index.html
+  # Isso permite que o React Router gerencie todas as rotas da Single Page Application (SPA)
+
+  # Ignora requisições diretas a arquivos existentes
+  RewriteCond %{REQUEST_FILENAME} !-f
+  # Ignora requisições diretas a pastas existentes
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Redireciona todas as outras requisições para index.html
+  RewriteRule ^ index.html [QSA,L]
+</IfModule>
