@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
   };
 
   const handleScrollToSection = (sectionId: string) => {
-    const servicePage = ['google-meu-negocio', 'criacao-de-sites', 'google-ads', 'seo'].includes(currentPage);
+    const servicePage = ['google-meu-negocio', 'criacao-de-sites', 'google-ads', 'seo', 'smart-signs'].includes(currentPage);
 
     if (currentPage !== 'home' && !servicePage) {
       setCurrentPage('home');
@@ -132,6 +132,15 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                     <div className="text-sm text-gray-500">Buscas orgânicas</div>
                   </button>
                   <button
+                    onClick={() => handleNavigation('smart-signs')}
+                    className={`block w-full text-left px-4 py-3 hover:bg-amber-50 transition-colors ${
+                      currentPage === 'smart-signs' ? 'text-amber-600 bg-amber-50' : 'text-gray-700'
+                    }`}
+                  >
+                    <div className="font-medium">Placas Inteligentes</div>
+                    <div className="text-sm text-gray-500">QR Code + NFC e biosite</div>
+                  </button>
+                  <button
                     onClick={() => handleNavigation('site-rental')}
                     className={`block w-full text-left px-4 py-3 hover:bg-emerald-50 transition-colors ${
                       currentPage === 'site-rental' ? 'text-emerald-600 bg-emerald-50' : 'text-gray-700'
@@ -240,6 +249,16 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                 }`}
               >
                 SEO
+              </button>
+              <button
+                onClick={() => handleNavigation('smart-signs')}
+                className={`text-left transition-colors ${
+                  currentPage === 'smart-signs'
+                    ? 'text-blue-600 font-medium'
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
+              >
+                Placas Inteligentes
               </button>
               <button
                 onClick={() => handleNavigation('site-rental')}

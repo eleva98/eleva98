@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   QrCode,
   Smartphone,
   Star,
   Package,
-  Settings2,
   ShieldCheck,
   Palette,
   RefreshCw,
@@ -13,20 +12,19 @@ import {
   Truck,
   BadgeCheck,
   ChevronDown,
-  MessageCircle,
   ArrowRight,
   Sparkles,
   TrendingUp,
-  Users,
   Frown,
   CheckCircle2,
+  Clock,
+  Award,
 } from 'lucide-react';
+import SEOHead from './SEOHead';
 
 interface SmartSignsLandingProps {
   setCurrentPage: (page: string) => void;
 }
-
-const WHATSAPP_NUMBER = '5194373376';
 
 const useReveal = () => {
   useEffect(() => {
@@ -50,21 +48,14 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   useReveal();
 
-  const handleWhatsApp = (message?: string) => {
-    const text = message
-      ? encodeURIComponent(message)
-      : encodeURIComponent('Olá! Quero saber mais sobre as Placas Inteligentes Eleve Leads.');
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank', 'noopener,noreferrer');
+  const handleGoToContact = () => {
+    setCurrentPage('contact');
+    window.scrollTo(0, 0);
   };
 
   const scrollToCheckout = () => {
     const el = document.getElementById('checkout');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleGoToPage = (page: string) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const steps = [
@@ -138,81 +129,78 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
   ];
 
   return (
-    <div className="bg-white">
-      {/* ===================== 1. HERO ===================== */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0F1E4D] via-[#1E3A8A] to-[#172554] text-white">
-        <div className="absolute inset-0 opacity-20">
-          <img
-            src="https://images.pexels.com/photos/8251362/pexels-photo-8251362.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0F1E4D] via-[#0F1E4D]/85 to-transparent"></div>
-        </div>
+    <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Placas Inteligentes - Eleve Leads | Avaliações 5 Estrelas com QR Code e NFC"
+        description="Placas em acrílico premium com QR Code e NFC que direcionam seus clientes direto para a tela de avaliação do Google. Inclui placa de biosite digital. Frete grátis."
+        keywords="placas inteligentes, qr code, nfc, avaliação google, biosite, placa de avaliação, reputação online, placas acrílico"
+        canonical="https://elevaleads.com/placas-inteligentes"
+      />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      {/* ===================== 1. HERO ===================== */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-7">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-sm font-medium animate-fade-in">
-                <Sparkles className="w-4 h-4 text-[#F59E0B]" />
+              <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-4 py-1.5 text-sm font-medium text-blue-700">
+                <Sparkles className="w-4 h-4 text-amber-500" />
                 <span>Tecnologia QR Code + NFC</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] animate-fade-in-delay-1">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Transforme Clientes em{' '}
-                <span className="text-[#F59E0B]">Avaliações 5 Estrelas</span> — de Forma Automática
+                <span className="text-blue-600">Avaliações 5 Estrelas</span> — de Forma Automática
               </h1>
 
-              <p className="text-lg md:text-xl text-blue-100 leading-relaxed max-w-xl animate-fade-in-delay-2">
+              <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
                 Placas inteligentes com QR Code e NFC que direcionam seus clientes direto para deixar
                 avaliações no Google. E de brinde, um biosite profissional para sua empresa.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-delay-3">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={scrollToCheckout}
-                  className="bg-[#F59E0B] hover:bg-[#EAB308] text-[#1E3A8A] font-extrabold px-8 py-4 rounded-xl text-lg transition-all transform hover:scale-[1.03] hover:shadow-2xl hover:shadow-amber-500/30 inline-flex items-center justify-center gap-2 group"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors inline-flex items-center justify-center gap-2 group"
                 >
                   Quero Minha Placa Agora
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
-                  onClick={() => handleWhatsApp('Olá! Gostaria de tirar uma dúvida sobre as placas inteligentes.')}
-                  className="bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all inline-flex items-center justify-center gap-2"
+                  onClick={handleGoToContact}
+                  className="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold px-8 py-4 rounded-lg text-lg transition-colors inline-flex items-center justify-center gap-2"
                 >
-                  <MessageCircle className="w-5 h-5" />
                   Tirar Dúvidas
                 </button>
               </div>
 
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-blue-100 animate-fade-in-delay-3 pt-2">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600 pt-2">
                 <div className="flex items-center gap-2">
-                  <Truck className="w-5 h-5 text-[#F59E0B]" />
+                  <Truck className="w-5 h-5 text-amber-500" />
                   <span>Frete grátis para todo Brasil</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-[#F59E0B]" />
+                  <Zap className="w-5 h-5 text-amber-500" />
                   <span>Instalação em 2 minutos</span>
                 </div>
               </div>
             </div>
 
-            {/* Hero visual: phone scanning a QR plaque */}
-            <div className="relative animate-fade-in-delay-2">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
+            {/* Hero visual */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                 <img
                   src="https://images.pexels.com/photos/2451622/pexels-photo-2451622.jpeg?auto=compress&cs=tinysrgb&w=1000"
                   alt="Cliente escaneando QR code com celular"
                   className="w-full h-[420px] md:h-[480px] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1E4D]/70 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 via-transparent to-transparent"></div>
               </div>
 
               {/* Floating star card */}
-              <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-2xl p-4 w-52 animate-float">
+              <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-2xl p-4 w-52 hidden sm:block">
                 <div className="flex items-center gap-1 mb-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-[#F59E0B] fill-current" />
+                    <Star key={i} className="w-4 h-4 text-amber-500 fill-current" />
                   ))}
                 </div>
                 <p className="text-gray-800 font-bold text-lg leading-none">+300%</p>
@@ -220,7 +208,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
               </div>
 
               {/* Floating NFC badge */}
-              <div className="absolute -top-4 -right-4 bg-[#F59E0B] text-[#1E3A8A] rounded-2xl shadow-xl px-4 py-3 font-bold text-sm animate-float" style={{ animationDelay: '1.5s' }}>
+              <div className="absolute -top-4 -right-4 bg-amber-500 text-blue-900 rounded-2xl shadow-xl px-4 py-3 font-bold text-sm hidden sm:block">
                 <div className="flex items-center gap-2">
                   <Smartphone className="w-5 h-5" />
                   <span>Encoste & Avalie</span>
@@ -236,9 +224,9 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 order-2 lg:order-1">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
                 Você sabia que{' '}
-                <span className="text-[#1E3A8A]">93% dos consumidores</span> leem avaliações antes de
+                <span className="text-blue-600">93% dos consumidores</span> leem avaliações antes de
                 escolher um negócio?
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
@@ -260,7 +248,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
 
             <div className="order-1 lg:order-2 flex justify-center">
               <div className="relative">
-                <div className="bg-white rounded-3xl shadow-xl p-8 w-72 text-center">
+                <div className="bg-white rounded-2xl shadow-xl p-8 w-72 text-center">
                   <div className="w-20 h-20 mx-auto bg-red-50 rounded-full flex items-center justify-center mb-5">
                     <Frown className="w-10 h-10 text-red-400" />
                   </div>
@@ -285,10 +273,10 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-              Apresentamos as <span className="text-[#1E3A8A]">Placas Inteligentes Eleve Leads</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Apresentando as <span className="text-blue-600">Placas Inteligentes Eleve Leads</span>
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-xl text-gray-600">
               Duas soluções em acrílico premium com tecnologia QR Code e NFC para transformar a presença
               digital do seu negócio.
             </p>
@@ -296,51 +284,51 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
 
           <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
             {/* Card 1: Placa de Avaliação Google */}
-            <div className="reveal bg-gradient-to-b from-blue-50 to-white rounded-3xl p-8 lg:p-10 border border-blue-100 hover:shadow-2xl transition-shadow duration-300">
-              <div className="relative rounded-2xl overflow-hidden mb-6 h-56">
+            <div className="reveal bg-gradient-to-b from-blue-50 to-white rounded-2xl p-8 lg:p-10 border border-blue-100 hover:shadow-xl transition-shadow duration-300">
+              <div className="relative rounded-xl overflow-hidden mb-6 h-56">
                 <img
                   src="https://images.pexels.com/photos/12935051/pexels-photo-12935051.jpeg?auto=compress&cs=tinysrgb&w=900"
                   alt="Placa de avaliação Google com QR code e NFC"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-4 left-4 bg-[#1E3A8A] text-white px-3 py-1.5 rounded-lg text-sm font-bold inline-flex items-center gap-1.5">
+                <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1.5 rounded-lg text-sm font-bold inline-flex items-center gap-1.5">
                   <QrCode className="w-4 h-4" />
                   QR Code + NFC
                 </div>
               </div>
-              <h3 className="text-2xl font-extrabold text-gray-900 mb-3">Placa de Avaliação Google</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Placa de Avaliação Google</h3>
               <p className="text-gray-600 leading-relaxed mb-5">
                 Basta o cliente apontar a câmera do celular ou encostar com NFC. Ele é direcionado
                 automaticamente para a tela de avaliação 5 estrelas do seu negócio no Google. Sem digitar,
                 sem buscar.
               </p>
-              <div className="bg-[#F59E0B]/10 border border-[#F59E0B]/30 rounded-xl p-4 inline-flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-[#F59E0B]" />
-                <span className="font-bold text-[#92580B]">Aumente suas avaliações em até 300% em 30 dias</span>
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 inline-flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-amber-600" />
+                <span className="font-bold text-amber-700">Aumente suas avaliações em até 300% em 30 dias</span>
               </div>
             </div>
 
             {/* Card 2: Placa de Biosite */}
-            <div className="reveal bg-gradient-to-b from-amber-50 to-white rounded-3xl p-8 lg:p-10 border border-amber-100 hover:shadow-2xl transition-shadow duration-300">
-              <div className="relative rounded-2xl overflow-hidden mb-6 h-56">
+            <div className="reveal bg-gradient-to-b from-amber-50 to-white rounded-2xl p-8 lg:p-10 border border-amber-100 hover:shadow-xl transition-shadow duration-300">
+              <div className="relative rounded-xl overflow-hidden mb-6 h-56">
                 <img
                   src="https://images.pexels.com/photos/12935064/pexels-photo-12935064.jpeg?auto=compress&cs=tinysrgb&w=900"
                   alt="Placa de biosite com QR code"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-4 left-4 bg-[#1E3A8A] text-white px-3 py-1.5 rounded-lg text-sm font-bold inline-flex items-center gap-1.5">
+                <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1.5 rounded-lg text-sm font-bold inline-flex items-center gap-1.5">
                   <Smartphone className="w-4 h-4" />
                   Biosite Digital
                 </div>
               </div>
-              <h3 className="text-2xl font-extrabold text-gray-900 mb-3">Placa de Biosite</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Placa de Biosite</h3>
               <p className="text-gray-600 leading-relaxed mb-5">
                 Seu cartão de visita digital. O cliente escaneia e acessa seu cardápio, WhatsApp, redes
                 sociais e site em um único lugar. Perfeito para mesas de restaurante, balcões e recepções.
               </p>
-              <div className="bg-[#F59E0B]/10 border border-[#F59E0B]/30 rounded-xl p-4 inline-flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-[#F59E0B]" />
-                <span className="font-bold text-[#92580B]">Incluímos o design do seu biosite grátis</span>
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 inline-flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-amber-600" />
+                <span className="font-bold text-amber-700">Incluímos o design do seu biosite grátis</span>
               </div>
             </div>
           </div>
@@ -348,30 +336,26 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
       </section>
 
       {/* ===================== 4. COMO FUNCIONA ===================== */}
-      <section className="py-20 lg:py-28 bg-gradient-to-b from-[#1E3A8A] to-[#172554] text-white">
+      <section className="py-20 lg:py-28 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Em 3 passos simples</h2>
-            <p className="text-lg text-blue-100">Do recebimento às primeiras avaliações em minutos.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Em 3 passos simples</h2>
+            <p className="text-xl text-blue-100">Do recebimento às primeiras avaliações em minutos.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 relative">
+          <div className="grid md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="reveal text-center relative">
+              <div key={index} className="reveal text-center">
                 <div className="relative inline-flex items-center justify-center mb-6">
-                  <div className="w-20 h-20 bg-[#F59E0B] rounded-2xl flex items-center justify-center shadow-lg">
-                    <step.icon className="w-9 h-9 text-[#1E3A8A]" />
+                  <div className="w-20 h-20 bg-amber-500 rounded-2xl flex items-center justify-center shadow-lg">
+                    <step.icon className="w-9 h-9 text-blue-900" />
                   </div>
-                  <span className="absolute -top-3 -right-3 w-8 h-8 bg-white text-[#1E3A8A] rounded-full font-extrabold flex items-center justify-center text-sm shadow-md">
+                  <span className="absolute -top-3 -right-3 w-8 h-8 bg-white text-blue-600 rounded-full font-bold flex items-center justify-center text-sm shadow-md">
                     {index + 1}
                   </span>
                 </div>
                 <h3 className="text-xl font-bold mb-3">{step.title}</h3>
                 <p className="text-blue-100 leading-relaxed max-w-xs mx-auto">{step.description}</p>
-
-                {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-10 -right-4 text-[#F59E0B] text-3xl font-bold">→</div>
-                )}
               </div>
             ))}
           </div>
@@ -379,7 +363,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
           <div className="reveal text-center mt-14">
             <button
               onClick={scrollToCheckout}
-              className="bg-[#F59E0B] hover:bg-[#EAB308] text-[#1E3A8A] font-extrabold px-8 py-4 rounded-xl text-lg transition-all transform hover:scale-[1.03] hover:shadow-2xl inline-flex items-center gap-2 group"
+              className="bg-amber-500 hover:bg-amber-600 text-blue-900 font-bold px-8 py-4 rounded-lg text-lg transition-colors inline-flex items-center gap-2 group"
             >
               Quero Começar Agora
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -392,10 +376,10 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal text-center mb-16 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Por que as empresas estão adotando?
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-xl text-gray-600">
               Tecnologia, design e resultados que seus clientes percebem na hora.
             </p>
           </div>
@@ -404,15 +388,15 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="reveal bg-gray-50 rounded-2xl p-7 hover:bg-blue-50 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-blue-100"
+                className="reveal bg-gray-50 rounded-xl p-7 hover:bg-blue-50 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-blue-100"
               >
-                <div className="w-12 h-12 bg-[#1E3A8A] rounded-xl flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
                   <benefit.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-600 leading-relaxed text-sm">{benefit.text}</p>
                 {index === 4 && (
-                  <span className="inline-block mt-3 text-xs font-bold text-[#F59E0B] bg-[#F59E0B]/10 px-2.5 py-1 rounded-full">
+                  <span className="inline-block mt-3 text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">
                     Diferencial exclusivo
                   </span>
                 )}
@@ -426,21 +410,21 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
       <section className="py-20 lg:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Quem usa, recomenda</h2>
-            <p className="text-lg text-gray-600">Resultados reais de negócios locais como o seu.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Quem usa, recomenda</h2>
+            <p className="text-xl text-gray-600">Resultados reais de negócios locais como o seu.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((t, index) => (
               <div
                 key={index}
-                className="reveal bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow duration-300"
+                className="reveal bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="flex items-center gap-4 mb-5">
                   <img
                     src={t.image}
                     alt={t.name}
-                    className="w-14 h-14 rounded-full object-cover ring-2 ring-[#F59E0B]"
+                    className="w-14 h-14 rounded-full object-cover ring-2 ring-amber-500"
                     loading="lazy"
                   />
                   <div>
@@ -450,7 +434,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
                 </div>
                 <div className="flex gap-0.5 mb-4">
                   {[...Array(t.stars)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-[#F59E0B] fill-current" />
+                    <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />
                   ))}
                 </div>
                 <p className="text-gray-700 leading-relaxed italic">"{t.quote}"</p>
@@ -461,19 +445,19 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
       </section>
 
       {/* ===================== 7. GARANTIA E PREÇO ===================== */}
-      <section id="checkout" className="py-20 lg:py-28 bg-gradient-to-br from-[#0F1E4D] via-[#1E3A8A] to-[#172554] text-white">
+      <section id="checkout" className="py-20 lg:py-28 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Peça a sua sem risco</h2>
-            <p className="text-lg text-blue-100">Tudo o que você precisa para dominar sua reputação online.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Peça a sua sem risco</h2>
+            <p className="text-xl text-blue-100">Tudo o que você precisa para dominar sua reputação online.</p>
           </div>
 
-          <div className="reveal bg-white text-gray-900 rounded-3xl shadow-2xl overflow-hidden max-w-3xl mx-auto">
-            <div className="bg-[#F59E0B] text-[#1E3A8A] text-center py-3 font-extrabold text-sm uppercase tracking-wide">
+          <div className="reveal bg-white text-gray-900 rounded-2xl shadow-2xl overflow-hidden max-w-3xl mx-auto">
+            <div className="bg-amber-500 text-blue-900 text-center py-3 font-bold text-sm uppercase tracking-wide">
               Oferta de lançamento · Estoque limitado
             </div>
             <div className="p-8 md:p-12">
-              <h3 className="text-2xl font-extrabold text-gray-900 mb-2 text-center">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">
                 Kit Completo Eleve Leads
               </h3>
               <p className="text-gray-500 text-center mb-8">
@@ -482,7 +466,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
 
               <div className="flex items-center justify-center gap-3 mb-2">
                 <span className="text-2xl text-gray-400 line-through">R$ 397</span>
-                <span className="text-5xl md:text-6xl font-extrabold text-[#1E3A8A]">R$ 197</span>
+                <span className="text-5xl md:text-6xl font-bold text-blue-600">R$ 197</span>
               </div>
               <p className="text-center text-gray-600 mb-8">
                 ou <strong className="text-gray-900">6x de R$ 32,84</strong> sem juros
@@ -505,8 +489,8 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
               </div>
 
               <button
-                onClick={() => handleWhatsApp('Olá! Quero comprar o Kit Completo Eleve Leads (Placa de Avaliação + Biosite) por R$ 197.')}
-                className="w-full bg-[#F59E0B] hover:bg-[#EAB308] text-[#1E3A8A] font-extrabold text-lg md:text-xl py-5 rounded-xl transition-all transform hover:scale-[1.02] hover:shadow-2xl animate-glow"
+                onClick={handleGoToContact}
+                className="w-full bg-amber-500 hover:bg-amber-600 text-blue-900 font-bold text-lg md:text-xl py-5 rounded-lg transition-colors"
               >
                 QUERO MINHAS PLACAS COM DESCONTO
               </button>
@@ -526,20 +510,20 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Perguntas Frequentes</h2>
-            <p className="text-lg text-gray-600">Tire suas dúvidas antes de pedir a sua.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Perguntas Frequentes</h2>
+            <p className="text-xl text-gray-600">Tire suas dúvidas antes de pedir a sua.</p>
           </div>
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="reveal bg-gray-50 rounded-2xl overflow-hidden border border-gray-100">
+              <div key={index} className="reveal bg-gray-50 rounded-xl overflow-hidden border border-gray-100">
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors"
                 >
                   <span className="font-bold text-gray-900 text-base md:text-lg">{faq.question}</span>
                   <ChevronDown
-                    className={`w-6 h-6 text-[#1E3A8A] flex-shrink-0 transition-transform duration-300 ${
+                    className={`w-6 h-6 text-blue-600 flex-shrink-0 transition-transform duration-300 ${
                       openFaq === index ? 'rotate-180' : ''
                     }`}
                   />
@@ -559,95 +543,53 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
           <div className="reveal text-center mt-12">
             <p className="text-gray-600 mb-4">Ainda com dúvidas?</p>
             <button
-              onClick={() => handleWhatsApp('Olá! Tenho uma dúvida sobre as Placas Inteligentes.')}
-              className="inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#172554] text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+              onClick={handleGoToContact}
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
             >
-              <MessageCircle className="w-5 h-5" />
-              Falar no WhatsApp
+              Fale Conosco
+              <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </div>
       </section>
 
-      {/* ===================== 9. FOOTER ===================== */}
-      <footer className="bg-[#0F1E4D] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid md:grid-cols-3 gap-8 items-start">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-9 h-9 bg-[#F59E0B] rounded-lg flex items-center justify-center">
-                  <QrCode className="w-5 h-5 text-[#1E3A8A]" />
-                </div>
-                <span className="text-xl font-extrabold">
-                  Eleve<span className="text-[#F59E0B]">Leads</span>
-                </span>
-              </div>
-              <p className="text-blue-200 text-sm leading-relaxed max-w-xs">
-                Placas inteligentes com QR Code e NFC para transformar clientes satisfeitos em avaliações
-                5 estrelas no Google.
-              </p>
-            </div>
+      {/* ===================== CTA Final ===================== */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            Pronto para Dominar Sua Reputação Online?
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Solicite seu Kit Completo de Placas Inteligentes e comece a receber avaliações 5 estrelas ainda
+            esta semana.
+          </p>
 
-            <div>
-              <h4 className="font-bold mb-4 text-sm uppercase tracking-wide text-blue-300">Navegação</h4>
-              <ul className="space-y-2.5 text-sm">
-                <li>
-                  <button onClick={() => handleGoToPage('about')} className="text-blue-200 hover:text-[#F59E0B] transition-colors">
-                    Sobre
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => handleGoToPage('contact')} className="text-blue-200 hover:text-[#F59E0B] transition-colors">
-                    Contato
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => handleGoToPage('privacy-policy')} className="text-blue-200 hover:text-[#F59E0B] transition-colors">
-                    Política de Privacidade
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4 text-sm uppercase tracking-wide text-blue-300">Fale Conosco</h4>
-              <div className="flex gap-3 mb-4">
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/10 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors"
-                  aria-label="WhatsApp"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                </a>
-                <a
-                  href="mailto:contato@eleveleads.com"
-                  className="w-10 h-10 bg-white/10 hover:bg-[#F59E0B] hover:text-[#1E3A8A] rounded-lg flex items-center justify-center transition-colors"
-                  aria-label="E-mail"
-                >
-                  <Smartphone className="w-5 h-5" />
-                </a>
-              </div>
-              <p className="text-blue-200 text-sm">contato@eleveleads.com</p>
-              <p className="text-blue-200 text-sm">(51) 9437-3376</p>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <button
+              onClick={scrollToCheckout}
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg inline-flex items-center justify-center space-x-2 group"
+            >
+              <span>Quero Minhas Placas Agora</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
 
-          <div className="border-t border-white/10 mt-10 pt-6 text-center">
-            <p className="text-blue-300 text-sm">© 2025 Eleve Leads. Todos os direitos reservados.</p>
+          <div className="flex items-center justify-center space-x-8 text-gray-600">
+            <div className="flex items-center space-x-2">
+              <Clock className="w-5 h-5" />
+              <span>Envio em 24h</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <ShieldCheck className="w-5 h-5" />
+              <span>Garantia 30 dias</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Award className="w-5 h-5" />
+              <span>Suporte completo</span>
+            </div>
           </div>
         </div>
-      </footer>
-
-      {/* ===================== WhatsApp Float ===================== */}
-      <button
-        onClick={() => handleWhatsApp()}
-        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all transform hover:scale-110 animate-pulse hover:animate-none"
-        aria-label="Falar no WhatsApp"
-      >
-        <MessageCircle className="w-7 h-7" />
-      </button>
+      </section>
     </div>
   );
 };

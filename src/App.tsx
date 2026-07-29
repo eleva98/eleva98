@@ -105,6 +105,8 @@ function App() {
         return <SEOPage />;
       case 'site-rental':
         return <SiteRentalLanding />;
+      case 'smart-signs':
+        return <SmartSignsLanding setCurrentPage={setCurrentPage} />;
       case 'testimonials':
         return (
           <>
@@ -150,10 +152,6 @@ function App() {
         );
     }
   };
-
-  if (currentPage === 'smart-signs') {
-    return <SmartSignsLanding setCurrentPage={setCurrentPage} />;
-  }
 
   return (
     <div className="min-h-screen bg-white">
