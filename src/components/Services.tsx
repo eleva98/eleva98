@@ -9,7 +9,8 @@ import {
   Star,
   TrendingUp,
   Zap,
-  Home
+  Home,
+  QrCode
 } from 'lucide-react';
 
 const Services = () => {
@@ -122,6 +123,32 @@ const Services = () => {
       ],
       keywords: 'google ads, campanhas locais, tráfego pago, anúncios google, ppc, custo por clique, links patrocinados',
       path: '/google-ads'
+    },
+    {
+      icon: QrCode,
+      title: 'Placas Inteligentes (QR Code + NFC)',
+      subtitle: 'Transforme Clientes em Avaliações 5 Estrelas Automaticamente',
+      description: 'Placas em acrílico premium com QR Code e NFC que direcionam seus clientes direto para a tela de avaliação do Google. Inclui placa de biosite (cartão de visita digital) com seu cardápio, WhatsApp e redes sociais em um único link.',
+      features: [
+        'Placa de Avaliação Google com QR Code + NFC',
+        'Placa de Biosite com QR Code para cardápio e contatos',
+        'Biosite personalizado grátis (design incluso)',
+        'Material premium: acrílico fosco resistente a riscos',
+        'Atualização remota do link de destino a qualquer momento',
+        'Relatório de métricas: scans e avaliações geradas'
+      ],
+      color: 'blue',
+      bgColor: 'bg-blue-50',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      buttonColor: 'bg-blue-600 hover:bg-blue-700',
+      results: [
+        { label: 'Avaliações', value: '+300%' },
+        { label: 'Instalação', value: '2 min' },
+        { label: 'Garantia', value: '30 dias' }
+      ],
+      keywords: 'placas inteligentes, qr code, nfc, avaliação google, biosite, placa de avaliação, reputação online',
+      path: '/placas-inteligentes'
     },
     {
       icon: Home,
