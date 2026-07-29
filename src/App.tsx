@@ -20,6 +20,7 @@ import WebsiteCreationPage from './components/WebsiteCreationPage';
 import GoogleAdsPage from './components/GoogleAdsPage';
 import SEOPage from './components/SEOPage';
 import SiteRentalLanding from './components/SiteRentalLanding';
+import SmartSignsLanding from './components/SmartSignsLanding';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string | null>(null);
@@ -31,6 +32,7 @@ function App() {
     if (path === '/google-ads') return 'google-ads';
     if (path === '/seo') return 'seo';
     if (path === '/aluguel-de-sites') return 'site-rental';
+    if (path === '/placas-inteligentes') return 'smart-signs';
     if (path === '/contato' || path === '/contact') return 'contact';
     if (path === '/sobre' || path === '/about') return 'about';
     if (path === '/onde-atendemos') return 'where-we-serve';
@@ -48,6 +50,7 @@ function App() {
       'google-ads': '/google-ads',
       'seo': '/seo',
       'site-rental': '/aluguel-de-sites',
+      'smart-signs': '/placas-inteligentes',
       'contact': '/contato',
       'about': '/sobre',
       'where-we-serve': '/onde-atendemos',
@@ -147,6 +150,10 @@ function App() {
         );
     }
   };
+
+  if (currentPage === 'smart-signs') {
+    return <SmartSignsLanding setCurrentPage={setCurrentPage} />;
+  }
 
   return (
     <div className="min-h-screen bg-white">

@@ -1,0 +1,655 @@
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  QrCode,
+  Smartphone,
+  Star,
+  Package,
+  Settings2,
+  ShieldCheck,
+  Palette,
+  RefreshCw,
+  BarChart3,
+  Zap,
+  Truck,
+  BadgeCheck,
+  ChevronDown,
+  MessageCircle,
+  ArrowRight,
+  Sparkles,
+  TrendingUp,
+  Users,
+  Frown,
+  CheckCircle2,
+} from 'lucide-react';
+
+interface SmartSignsLandingProps {
+  setCurrentPage: (page: string) => void;
+}
+
+const WHATSAPP_NUMBER = '5194373376';
+
+const useReveal = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    const elements = document.querySelectorAll('.reveal');
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+};
+
+const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage }) => {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  useReveal();
+
+  const handleWhatsApp = (message?: string) => {
+    const text = message
+      ? encodeURIComponent(message)
+      : encodeURIComponent('Olá! Quero saber mais sobre as Placas Inteligentes Eleve Leads.');
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank', 'noopener,noreferrer');
+  };
+
+  const scrollToCheckout = () => {
+    const el = document.getElementById('checkout');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleGoToPage = (page: string) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const steps = [
+    {
+      icon: Package,
+      title: 'Você recebe a placa em casa',
+      description: 'Envio em 24h com frete grátis para todo o Brasil. Chega prontinha para usar.',
+    },
+    {
+      icon: Smartphone,
+      title: 'Ative e personalize seu link',
+      description: 'Escaneie o QR code master para ativar e personalizar seu link de avaliação ou biosite.',
+    },
+    {
+      icon: Star,
+      title: 'Posicione e veja as avaliações chegarem',
+      description: 'Coloque a placa no seu balcão ou mesa. Os clientes escaneiam e avaliam na hora.',
+    },
+  ];
+
+  const benefits = [
+    { icon: ShieldCheck, title: 'Sem toque físico', text: 'QR code e NFC higiênicos — sem contato, sem app.' },
+    { icon: Palette, title: 'Personalizável', text: 'Imprimimos sua marca e cores na placa premium.' },
+    { icon: BadgeCheck, title: 'Material premium', text: 'Acrílico fosco resistente a riscos e elegante.' },
+    { icon: RefreshCw, title: 'Atualização remota', text: 'Troque o destino do QR code a qualquer momento.' },
+    { icon: BarChart3, title: 'Relatório de métricas', text: 'Veja quantos scans e quantas avaliações foram geradas.' },
+    { icon: Zap, title: 'Instalação em 2 minutos', text: 'Pronta para uso — só posicionar onde os clientes veem.' },
+  ];
+
+  const testimonials = [
+    {
+      name: 'Juliana',
+      business: 'Restaurante Sabor & Arte',
+      image: 'https://images.pexels.com/photos/14156484/pexels-photo-14156484.jpeg?auto=compress&cs=tinysrgb&h=300&w=300',
+      quote: 'Minhas avaliações no Google saltaram de 12 para 87 em dois meses. A placa é linda e chama atenção na mesa.',
+      stars: 5,
+    },
+    {
+      name: 'Dr. Carlos',
+      business: 'Clínica Sorriso',
+      image: 'https://images.pexels.com/photos/7752805/pexels-photo-7752805.jpeg?auto=compress&cs=tinysrgb&h=300&w=300',
+      quote: 'Simples, moderna e eficiente. O NFC é mágica pura — os pacientes encostam o celular e avaliam.',
+      stars: 5,
+    },
+    {
+      name: 'Márcia',
+      business: 'Salão Bella Hair',
+      image: 'https://images.pexels.com/photos/7752818/pexels-photo-7752818.jpeg?auto=compress&cs=tinysrgb&h=300&w=300',
+      quote: 'Eu não manjo de tecnologia, mas em 5 minutos estava tudo pronto. O biosite ficou show!',
+      stars: 5,
+    },
+  ];
+
+  const faqs = [
+    {
+      question: 'Precisa de pilha ou energia?',
+      answer: 'Não. A tecnologia é totalmente passiva — o QR code e o chip NFC funcionam sem bateria, sem fios e sem manutenção. É só posicionar e usar.',
+    },
+    {
+      question: 'Posso reutilizar o QR code?',
+      answer: 'Sim! Você pode alterar o link de destino a qualquer momento pelo nosso painel online. A placa física continua a mesma, só o endereço muda — ideal para atualizar ofertas ou links do biosite.',
+    },
+    {
+      question: 'Quanto tempo demora para chegar?',
+      answer: 'O envio é feito em até 24h após a confirmação da compra. O prazo médio de entrega é de 5 dias úteis, com frete grátis para todo o Brasil.',
+    },
+    {
+      question: 'Não sei criar o biosite. Vocês ajudam?',
+      answer: 'Sim! Enviamos o seu biosite 100% pronto e personalizado em até 2 dias após a compra. Nossa equipe monta o design, adiciona seu WhatsApp, redes sociais e cardápio — você só aprova.',
+    },
+  ];
+
+  return (
+    <div className="bg-white">
+      {/* ===================== 1. HERO ===================== */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0F1E4D] via-[#1E3A8A] to-[#172554] text-white">
+        <div className="absolute inset-0 opacity-20">
+          <img
+            src="https://images.pexels.com/photos/8251362/pexels-photo-8251362.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F1E4D] via-[#0F1E4D]/85 to-transparent"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-7">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-sm font-medium animate-fade-in">
+                <Sparkles className="w-4 h-4 text-[#F59E0B]" />
+                <span>Tecnologia QR Code + NFC</span>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] animate-fade-in-delay-1">
+                Transforme Clientes em{' '}
+                <span className="text-[#F59E0B]">Avaliações 5 Estrelas</span> — de Forma Automática
+              </h1>
+
+              <p className="text-lg md:text-xl text-blue-100 leading-relaxed max-w-xl animate-fade-in-delay-2">
+                Placas inteligentes com QR Code e NFC que direcionam seus clientes direto para deixar
+                avaliações no Google. E de brinde, um biosite profissional para sua empresa.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-delay-3">
+                <button
+                  onClick={scrollToCheckout}
+                  className="bg-[#F59E0B] hover:bg-[#EAB308] text-[#1E3A8A] font-extrabold px-8 py-4 rounded-xl text-lg transition-all transform hover:scale-[1.03] hover:shadow-2xl hover:shadow-amber-500/30 inline-flex items-center justify-center gap-2 group"
+                >
+                  Quero Minha Placa Agora
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button
+                  onClick={() => handleWhatsApp('Olá! Gostaria de tirar uma dúvida sobre as placas inteligentes.')}
+                  className="bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all inline-flex items-center justify-center gap-2"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Tirar Dúvidas
+                </button>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-blue-100 animate-fade-in-delay-3 pt-2">
+                <div className="flex items-center gap-2">
+                  <Truck className="w-5 h-5 text-[#F59E0B]" />
+                  <span>Frete grátis para todo Brasil</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-[#F59E0B]" />
+                  <span>Instalação em 2 minutos</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Hero visual: phone scanning a QR plaque */}
+            <div className="relative animate-fade-in-delay-2">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
+                <img
+                  src="https://images.pexels.com/photos/2451622/pexels-photo-2451622.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                  alt="Cliente escaneando QR code com celular"
+                  className="w-full h-[420px] md:h-[480px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1E4D]/70 via-transparent to-transparent"></div>
+              </div>
+
+              {/* Floating star card */}
+              <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-2xl p-4 w-52 animate-float">
+                <div className="flex items-center gap-1 mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-[#F59E0B] fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-800 font-bold text-lg leading-none">+300%</p>
+                <p className="text-gray-500 text-xs mt-1">avaliações em 30 dias</p>
+              </div>
+
+              {/* Floating NFC badge */}
+              <div className="absolute -top-4 -right-4 bg-[#F59E0B] text-[#1E3A8A] rounded-2xl shadow-xl px-4 py-3 font-bold text-sm animate-float" style={{ animationDelay: '1.5s' }}>
+                <div className="flex items-center gap-2">
+                  <Smartphone className="w-5 h-5" />
+                  <span>Encoste & Avalie</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== 2. O PROBLEMA ===================== */}
+      <section className="py-20 lg:py-28 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="reveal grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 order-2 lg:order-1">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+                Você sabia que{' '}
+                <span className="text-[#1E3A8A]">93% dos consumidores</span> leem avaliações antes de
+                escolher um negócio?
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                A maioria dos seus clientes satisfeitos nunca deixa uma avaliação — simplesmente porque é
+                inconveniente. Enquanto isso, um único feedback negativo pode afastar novos clientes.
+              </p>
+              <p className="text-lg font-semibold text-gray-900">
+                Sua reputação online está no piloto automático?
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <span className="bg-red-50 text-red-600 px-4 py-2 rounded-lg text-sm font-medium">
+                  Clientes felizes não avaliam
+                </span>
+                <span className="bg-red-50 text-red-600 px-4 py-2 rounded-lg text-sm font-medium">
+                  Avaliação negativa afasta vendas
+                </span>
+              </div>
+            </div>
+
+            <div className="order-1 lg:order-2 flex justify-center">
+              <div className="relative">
+                <div className="bg-white rounded-3xl shadow-xl p-8 w-72 text-center">
+                  <div className="w-20 h-20 mx-auto bg-red-50 rounded-full flex items-center justify-center mb-5">
+                    <Frown className="w-10 h-10 text-red-400" />
+                  </div>
+                  <div className="flex justify-center gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className={i < 3 ? 'w-6 h-6 text-red-400 fill-current' : 'w-6 h-6 text-gray-200'} />
+                    ))}
+                  </div>
+                  <p className="text-gray-700 font-medium">"Foi ok, nada demais..."</p>
+                  <p className="text-gray-400 text-sm mt-2">1 avaliação · este mês</p>
+                </div>
+                <div className="absolute -top-3 -right-3 bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                  Perdendo vendas
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== 3. A SOLUÇÃO ===================== */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="reveal text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+              Apresentamos as <span className="text-[#1E3A8A]">Placas Inteligentes Eleve Leads</span>
+            </h2>
+            <p className="text-lg text-gray-600">
+              Duas soluções em acrílico premium com tecnologia QR Code e NFC para transformar a presença
+              digital do seu negócio.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
+            {/* Card 1: Placa de Avaliação Google */}
+            <div className="reveal bg-gradient-to-b from-blue-50 to-white rounded-3xl p-8 lg:p-10 border border-blue-100 hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative rounded-2xl overflow-hidden mb-6 h-56">
+                <img
+                  src="https://images.pexels.com/photos/12935051/pexels-photo-12935051.jpeg?auto=compress&cs=tinysrgb&w=900"
+                  alt="Placa de avaliação Google com QR code e NFC"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 left-4 bg-[#1E3A8A] text-white px-3 py-1.5 rounded-lg text-sm font-bold inline-flex items-center gap-1.5">
+                  <QrCode className="w-4 h-4" />
+                  QR Code + NFC
+                </div>
+              </div>
+              <h3 className="text-2xl font-extrabold text-gray-900 mb-3">Placa de Avaliação Google</h3>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                Basta o cliente apontar a câmera do celular ou encostar com NFC. Ele é direcionado
+                automaticamente para a tela de avaliação 5 estrelas do seu negócio no Google. Sem digitar,
+                sem buscar.
+              </p>
+              <div className="bg-[#F59E0B]/10 border border-[#F59E0B]/30 rounded-xl p-4 inline-flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-[#F59E0B]" />
+                <span className="font-bold text-[#92580B]">Aumente suas avaliações em até 300% em 30 dias</span>
+              </div>
+            </div>
+
+            {/* Card 2: Placa de Biosite */}
+            <div className="reveal bg-gradient-to-b from-amber-50 to-white rounded-3xl p-8 lg:p-10 border border-amber-100 hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative rounded-2xl overflow-hidden mb-6 h-56">
+                <img
+                  src="https://images.pexels.com/photos/12935064/pexels-photo-12935064.jpeg?auto=compress&cs=tinysrgb&w=900"
+                  alt="Placa de biosite com QR code"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 left-4 bg-[#1E3A8A] text-white px-3 py-1.5 rounded-lg text-sm font-bold inline-flex items-center gap-1.5">
+                  <Smartphone className="w-4 h-4" />
+                  Biosite Digital
+                </div>
+              </div>
+              <h3 className="text-2xl font-extrabold text-gray-900 mb-3">Placa de Biosite</h3>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                Seu cartão de visita digital. O cliente escaneia e acessa seu cardápio, WhatsApp, redes
+                sociais e site em um único lugar. Perfeito para mesas de restaurante, balcões e recepções.
+              </p>
+              <div className="bg-[#F59E0B]/10 border border-[#F59E0B]/30 rounded-xl p-4 inline-flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-[#F59E0B]" />
+                <span className="font-bold text-[#92580B]">Incluímos o design do seu biosite grátis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== 4. COMO FUNCIONA ===================== */}
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-[#1E3A8A] to-[#172554] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="reveal text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Em 3 passos simples</h2>
+            <p className="text-lg text-blue-100">Do recebimento às primeiras avaliações em minutos.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 relative">
+            {steps.map((step, index) => (
+              <div key={index} className="reveal text-center relative">
+                <div className="relative inline-flex items-center justify-center mb-6">
+                  <div className="w-20 h-20 bg-[#F59E0B] rounded-2xl flex items-center justify-center shadow-lg">
+                    <step.icon className="w-9 h-9 text-[#1E3A8A]" />
+                  </div>
+                  <span className="absolute -top-3 -right-3 w-8 h-8 bg-white text-[#1E3A8A] rounded-full font-extrabold flex items-center justify-center text-sm shadow-md">
+                    {index + 1}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                <p className="text-blue-100 leading-relaxed max-w-xs mx-auto">{step.description}</p>
+
+                {index < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-10 -right-4 text-[#F59E0B] text-3xl font-bold">→</div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="reveal text-center mt-14">
+            <button
+              onClick={scrollToCheckout}
+              className="bg-[#F59E0B] hover:bg-[#EAB308] text-[#1E3A8A] font-extrabold px-8 py-4 rounded-xl text-lg transition-all transform hover:scale-[1.03] hover:shadow-2xl inline-flex items-center gap-2 group"
+            >
+              Quero Começar Agora
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== 5. BENEFÍCIOS ===================== */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="reveal text-center mb-16 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+              Por que as empresas estão adotando?
+            </h2>
+            <p className="text-lg text-gray-600">
+              Tecnologia, design e resultados que seus clientes percebem na hora.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="reveal bg-gray-50 rounded-2xl p-7 hover:bg-blue-50 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-blue-100"
+              >
+                <div className="w-12 h-12 bg-[#1E3A8A] rounded-xl flex items-center justify-center mb-4">
+                  <benefit.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-sm">{benefit.text}</p>
+                {index === 4 && (
+                  <span className="inline-block mt-3 text-xs font-bold text-[#F59E0B] bg-[#F59E0B]/10 px-2.5 py-1 rounded-full">
+                    Diferencial exclusivo
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== 6. DEPOIMENTOS ===================== */}
+      <section className="py-20 lg:py-28 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="reveal text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Quem usa, recomenda</h2>
+            <p className="text-lg text-gray-600">Resultados reais de negócios locais como o seu.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((t, index) => (
+              <div
+                key={index}
+                className="reveal bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="flex items-center gap-4 mb-5">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="w-14 h-14 rounded-full object-cover ring-2 ring-[#F59E0B]"
+                    loading="lazy"
+                  />
+                  <div>
+                    <h4 className="font-bold text-gray-900">{t.name}</h4>
+                    <p className="text-sm text-gray-500">{t.business}</p>
+                  </div>
+                </div>
+                <div className="flex gap-0.5 mb-4">
+                  {[...Array(t.stars)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-[#F59E0B] fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-700 leading-relaxed italic">"{t.quote}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== 7. GARANTIA E PREÇO ===================== */}
+      <section id="checkout" className="py-20 lg:py-28 bg-gradient-to-br from-[#0F1E4D] via-[#1E3A8A] to-[#172554] text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="reveal text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Peça a sua sem risco</h2>
+            <p className="text-lg text-blue-100">Tudo o que você precisa para dominar sua reputação online.</p>
+          </div>
+
+          <div className="reveal bg-white text-gray-900 rounded-3xl shadow-2xl overflow-hidden max-w-3xl mx-auto">
+            <div className="bg-[#F59E0B] text-[#1E3A8A] text-center py-3 font-extrabold text-sm uppercase tracking-wide">
+              Oferta de lançamento · Estoque limitado
+            </div>
+            <div className="p-8 md:p-12">
+              <h3 className="text-2xl font-extrabold text-gray-900 mb-2 text-center">
+                Kit Completo Eleve Leads
+              </h3>
+              <p className="text-gray-500 text-center mb-8">
+                Placa de Avaliação Google (QR + NFC) + Placa de Biosite + Biosite Personalizado Grátis
+              </p>
+
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <span className="text-2xl text-gray-400 line-through">R$ 397</span>
+                <span className="text-5xl md:text-6xl font-extrabold text-[#1E3A8A]">R$ 197</span>
+              </div>
+              <p className="text-center text-gray-600 mb-8">
+                ou <strong className="text-gray-900">6x de R$ 32,84</strong> sem juros
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-3 mb-8">
+                {[
+                  'Placa de Avaliação Google com QR + NFC',
+                  'Placa de Biosite com QR Code',
+                  'Biosite personalizado grátis',
+                  'Painel para trocar o link quando quiser',
+                  'Relatório de métricas de scans',
+                  'Frete grátis para todo Brasil',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => handleWhatsApp('Olá! Quero comprar o Kit Completo Eleve Leads (Placa de Avaliação + Biosite) por R$ 197.')}
+                className="w-full bg-[#F59E0B] hover:bg-[#EAB308] text-[#1E3A8A] font-extrabold text-lg md:text-xl py-5 rounded-xl transition-all transform hover:scale-[1.02] hover:shadow-2xl animate-glow"
+              >
+                QUERO MINHAS PLACAS COM DESCONTO
+              </button>
+
+              <div className="mt-6 flex items-center justify-center gap-3 text-sm text-gray-600">
+                <ShieldCheck className="w-5 h-5 text-green-600 flex-shrink-0" />
+                <span className="text-center">
+                  <strong>30 dias de garantia incondicional.</strong> Se não gerar resultados, devolvemos seu dinheiro.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== 8. FAQ ===================== */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="reveal text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Perguntas Frequentes</h2>
+            <p className="text-lg text-gray-600">Tire suas dúvidas antes de pedir a sua.</p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="reveal bg-gray-50 rounded-2xl overflow-hidden border border-gray-100">
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-gray-100 transition-colors"
+                >
+                  <span className="font-bold text-gray-900 text-base md:text-lg">{faq.question}</span>
+                  <ChevronDown
+                    className={`w-6 h-6 text-[#1E3A8A] flex-shrink-0 transition-transform duration-300 ${
+                      openFaq === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                <div
+                  className="grid transition-all duration-300 ease-in-out"
+                  style={{ gridTemplateRows: openFaq === index ? '1fr' : '0fr' }}
+                >
+                  <div className="overflow-hidden">
+                    <p className="px-6 pb-5 text-gray-600 leading-relaxed">{faq.answer}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="reveal text-center mt-12">
+            <p className="text-gray-600 mb-4">Ainda com dúvidas?</p>
+            <button
+              onClick={() => handleWhatsApp('Olá! Tenho uma dúvida sobre as Placas Inteligentes.')}
+              className="inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#172554] text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Falar no WhatsApp
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== 9. FOOTER ===================== */}
+      <footer className="bg-[#0F1E4D] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid md:grid-cols-3 gap-8 items-start">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-9 h-9 bg-[#F59E0B] rounded-lg flex items-center justify-center">
+                  <QrCode className="w-5 h-5 text-[#1E3A8A]" />
+                </div>
+                <span className="text-xl font-extrabold">
+                  Eleve<span className="text-[#F59E0B]">Leads</span>
+                </span>
+              </div>
+              <p className="text-blue-200 text-sm leading-relaxed max-w-xs">
+                Placas inteligentes com QR Code e NFC para transformar clientes satisfeitos em avaliações
+                5 estrelas no Google.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4 text-sm uppercase tracking-wide text-blue-300">Navegação</h4>
+              <ul className="space-y-2.5 text-sm">
+                <li>
+                  <button onClick={() => handleGoToPage('about')} className="text-blue-200 hover:text-[#F59E0B] transition-colors">
+                    Sobre
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleGoToPage('contact')} className="text-blue-200 hover:text-[#F59E0B] transition-colors">
+                    Contato
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleGoToPage('privacy-policy')} className="text-blue-200 hover:text-[#F59E0B] transition-colors">
+                    Política de Privacidade
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4 text-sm uppercase tracking-wide text-blue-300">Fale Conosco</h4>
+              <div className="flex gap-3 mb-4">
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors"
+                  aria-label="WhatsApp"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                </a>
+                <a
+                  href="mailto:contato@eleveleads.com"
+                  className="w-10 h-10 bg-white/10 hover:bg-[#F59E0B] hover:text-[#1E3A8A] rounded-lg flex items-center justify-center transition-colors"
+                  aria-label="E-mail"
+                >
+                  <Smartphone className="w-5 h-5" />
+                </a>
+              </div>
+              <p className="text-blue-200 text-sm">contato@eleveleads.com</p>
+              <p className="text-blue-200 text-sm">(51) 9437-3376</p>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 mt-10 pt-6 text-center">
+            <p className="text-blue-300 text-sm">© 2025 Eleve Leads. Todos os direitos reservados.</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* ===================== WhatsApp Float ===================== */}
+      <button
+        onClick={() => handleWhatsApp()}
+        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all transform hover:scale-110 animate-pulse hover:animate-none"
+        aria-label="Falar no WhatsApp"
+      >
+        <MessageCircle className="w-7 h-7" />
+      </button>
+    </div>
+  );
+};
+
+export default SmartSignsLanding;
