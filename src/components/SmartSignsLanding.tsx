@@ -302,7 +302,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
                   onClick={scrollToCheckout}
                   className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors inline-flex items-center justify-center gap-2 group"
                 >
-                  Ver Planos e Preços
+                  Ver Preços
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
@@ -329,7 +329,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                 <img
-                  src="https://images.pexels.com/photos/2451622/pexels-photo-2451622.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                  src="/Gemini_Generated_Image_uruqrcuruqrcuruq.png"
                   alt="Cliente escaneando QR code com celular"
                   className="w-full h-[420px] md:h-[480px] object-cover"
                 />
@@ -519,7 +519,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
             <div className="reveal bg-gradient-to-b from-blue-50 to-white rounded-2xl p-8 lg:p-10 border border-blue-100 hover:shadow-xl transition-shadow duration-300">
               <div className="relative rounded-xl overflow-hidden mb-6 h-56">
                 <img
-                  src="https://images.pexels.com/photos/12935051/pexels-photo-12935051.jpeg?auto=compress&cs=tinysrgb&w=900"
+                  src="/Gemini_Generated_Image_uruqrcuruqrcuruq.png"
                   alt="Placa de avaliação Google com QR code e NFC"
                   className="w-full h-full object-cover"
                 />
@@ -550,7 +550,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
             <div className="reveal bg-gradient-to-b from-amber-50 to-white rounded-2xl p-8 lg:p-10 border border-amber-100 hover:shadow-xl transition-shadow duration-300">
               <div className="relative rounded-xl overflow-hidden mb-6 h-56">
                 <img
-                  src="https://images.pexels.com/photos/12935064/pexels-photo-12935064.jpeg?auto=compress&cs=tinysrgb&w=900"
+                  src="/Gemini_Generated_Image_uruqrcuruqrcuruq.png"
                   alt="Placa de biosite com QR code"
                   className="w-full h-full object-cover"
                 />
@@ -693,7 +693,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal text-center mb-16 max-w-2xl mx-auto">
             <span className="inline-block text-blue-600 font-semibold text-sm uppercase tracking-wider mb-3">
-              Escolha seu plano
+              Escolha seu preço
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Preços que cabem no seu bolso
@@ -769,7 +769,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
                         : 'bg-blue-600 hover:bg-blue-700 text-white'
                     }`}
                   >
-                    Quero Este Plano
+                    Quero Esta Opção
                   </button>
                 </div>
               </div>
@@ -857,7 +857,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
               onClick={scrollToCheckout}
               className="bg-amber-500 text-blue-900 px-8 py-4 rounded-lg hover:bg-amber-600 transition-colors font-bold text-lg inline-flex items-center justify-center space-x-2 group"
             >
-              <span>Ver Planos e Preços</span>
+              <span>Ver Preços</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
