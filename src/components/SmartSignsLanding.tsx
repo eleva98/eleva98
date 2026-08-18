@@ -513,15 +513,30 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
             ))}
           </div>
 
+          {/* Showcase: os dois tipos de placas */}
+          <div className="reveal mt-16">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-gradient-to-br from-gray-50 to-white">
+              <img
+                src="/Gemini_Generated_Image_v7hcgdv7hcgdv7hc.jpeg"
+                alt="Os dois tipos de placas inteligentes: placa de avaliação Google e placa de biosite"
+                className="w-full h-[400px] md:h-[480px] object-contain"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900/70 to-transparent p-6">
+                <p className="text-white font-semibold text-lg">Os dois tipos de placas inteligentes</p>
+                <p className="text-gray-200 text-sm">Placa de Avaliação Google e Placa de Biosite — escolha a ideal para o seu negócio.</p>
+              </div>
+            </div>
+          </div>
+
           {/* Two product cards */}
           <div className="grid md:grid-cols-2 gap-8 lg:gap-10 mt-16">
             {/* Card 1: Placa de Avaliação Google */}
             <div className="reveal bg-gradient-to-b from-blue-50 to-white rounded-2xl p-8 lg:p-10 border border-blue-100 hover:shadow-xl transition-shadow duration-300">
-              <div className="relative rounded-xl overflow-hidden mb-6 h-56">
+              <div className="relative rounded-xl overflow-hidden mb-6 h-80 bg-gradient-to-br from-blue-50 to-white">
                 <img
                   src="/Gemini_Generated_Image_uruqrcuruqrcuruq.png"
                   alt="Placa de avaliação Google com QR code e NFC"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
                 <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1.5 rounded-lg text-sm font-bold inline-flex items-center gap-1.5">
                   <QrCode className="w-4 h-4" />
@@ -548,11 +563,11 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
 
             {/* Card 2: Placa de Biosite */}
             <div className="reveal bg-gradient-to-b from-amber-50 to-white rounded-2xl p-8 lg:p-10 border border-amber-100 hover:shadow-xl transition-shadow duration-300">
-              <div className="relative rounded-xl overflow-hidden mb-6 h-56">
+              <div className="relative rounded-xl overflow-hidden mb-6 h-80 bg-gradient-to-br from-amber-50 to-white">
                 <img
-                  src="/Gemini_Generated_Image_uruqrcuruqrcuruq.png"
+                  src="/Gemini_Generated_Image_v7hcgdv7hcgdv7hc.jpeg"
                   alt="Placa de biosite com QR code"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
                 <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1.5 rounded-lg text-sm font-bold inline-flex items-center gap-1.5">
                   <Smartphone className="w-4 h-4" />
