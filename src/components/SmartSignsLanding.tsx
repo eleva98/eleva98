@@ -25,7 +25,6 @@ import {
   MessageSquare,
   AlertTriangle,
   Wifi,
-  Crown,
   DollarSign,
 } from 'lucide-react';
 import SEOHead from './SEOHead';
@@ -199,28 +198,6 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
       color: 'blue',
     },
     {
-      id: 'kit',
-      icon: Crown,
-      name: 'Kit Completo Eleve Leads',
-      tagline: 'As duas placas com o melhor custo-benefício',
-      creditPrice: 'R$ 379',
-      pixPrice: 'R$ 299',
-      installments: '6x de R$ 63,17',
-      features: [
-        'Placa de Avaliação Google com QR Code + NFC',
-        'Placa de Biosite com QR Code inclusa',
-        'Biosite personalizado grátis (design incluso)',
-        'Painel online para trocar os links quando quiser',
-        'Relatório de métricas de ambas as placas',
-        'Economia de R$ 21 comparado a comprar separado',
-        'Frete grátis para todo Brasil',
-      ],
-      highlight: true,
-      color: 'amber',
-      badge: 'Mais Vendido',
-      saving: 'Economize R$ 21',
-    },
-    {
       id: 'biosite',
       icon: Smartphone,
       name: 'Placa de Biosite',
@@ -248,7 +225,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
     },
     {
       question: 'Qual a diferença entre as placas?',
-      answer: 'A Placa de Avaliação Google direciona o cliente direto para a tela de avaliação 5 estrelas no Google. A Placa de Biosite mostra seu cardápio, WhatsApp e redes sociais em um único link digital. O Kit Completo traz as duas com um desconto especial.',
+      answer: 'A Placa de Avaliação Google direciona o cliente direto para a tela de avaliação 5 estrelas no Google. A Placa de Biosite mostra seu cardápio, WhatsApp e redes sociais em um único link digital. Você pode escolher a que combina com o objetivo do seu negócio.',
     },
     {
       question: 'Posso reutilizar o QR code?',
@@ -264,7 +241,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
     },
     {
       question: 'Os valores no Pix são realmente mais baratos?',
-      answer: 'Sim. O pagamento via Pix tem desconto direto em relação ao crédito. A Placa de Avaliação sai por R$ 74,99 no Pix (R$ 100 no crédito), a Placa de Biosite por R$ 257 no Pix (R$ 300 no crédito) e o Kit Completo por R$ 299 no Pix (R$ 379 no crédito).',
+      answer: 'Sim. O pagamento via Pix tem desconto direto em relação ao crédito. A Placa de Avaliação sai por R$ 74,99 no Pix (R$ 100 no crédito) e a Placa de Biosite por R$ 257 no Pix (R$ 300 no crédito).',
     },
   ];
 
@@ -293,8 +270,8 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
               </h1>
 
               <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
-                Placas inteligentes com QR Code e NFC que direcionam seus clientes direto para deixar
-                avaliações no Google. E de brinde, um biosite profissional para sua empresa.
+                Placas inteligentes com QR Code e NFC. Escolha entre a placa de avaliação Google
+                ou a placa de biosite — cada uma focada no que seu negócio precisa.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -513,21 +490,6 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
             ))}
           </div>
 
-          {/* Showcase: os dois tipos de placas */}
-          <div className="reveal mt-16">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-gradient-to-br from-gray-50 to-white">
-              <img
-                src="/Gemini_Generated_Image_v7hcgdv7hcgdv7hc.jpeg"
-                alt="Os dois tipos de placas inteligentes: placa de avaliação Google e placa de biosite"
-                className="w-full h-[400px] md:h-[480px] object-contain"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900/70 to-transparent p-6">
-                <p className="text-white font-semibold text-lg">Os dois tipos de placas inteligentes</p>
-                <p className="text-gray-200 text-sm">Placa de Avaliação Google e Placa de Biosite — escolha a ideal para o seu negócio.</p>
-              </div>
-            </div>
-          </div>
-
           {/* Two product cards */}
           <div className="grid md:grid-cols-2 gap-8 lg:gap-10 mt-16">
             {/* Card 1: Placa de Avaliação Google */}
@@ -565,7 +527,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
             <div className="reveal bg-gradient-to-b from-amber-50 to-white rounded-2xl p-8 lg:p-10 border border-amber-100 hover:shadow-xl transition-shadow duration-300">
               <div className="relative rounded-xl overflow-hidden mb-6 h-80 bg-gradient-to-br from-amber-50 to-white">
                 <img
-                  src="/Gemini_Generated_Image_v7hcgdv7hcgdv7hc.jpeg"
+                  src="/Gemini_Generated_Image_v7hcgdv7hcgdv7hc copy.jpeg"
                   alt="Placa de biosite com QR code"
                   className="w-full h-full object-contain"
                 />
@@ -719,7 +681,7 @@ const SmartSignsLanding: React.FC<SmartSignsLandingProps> = ({ setCurrentPage })
           </div>
 
           {/* Plan cards */}
-          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 items-start">
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-start">
             {plans.map((plan) => (
               <div
                 key={plan.id}
