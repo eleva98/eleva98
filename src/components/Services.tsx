@@ -179,69 +179,69 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-10 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
             Serviços de <span className="text-blue-600">Marketing Digital</span> para{' '}
             <span className="text-blue-600">Negócios Locais</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Especialistas em Google Meu Negócio, Criação de Sites e Google Ads. Soluções completas de SEO local,
             desenvolvimento web e tráfego pago para empresas que querem dominar o mercado digital na sua região.
           </p>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-6 md:space-y-12">
           {mainServices.map((service, index) => (
             <div key={index} className={`${service.bgColor} rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300`}>
-              <div className="grid lg:grid-cols-2 gap-8 p-8 lg:p-12">
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className={`${service.iconBg} p-4 rounded-xl flex-shrink-0`}>
-                      <service.icon className={`w-10 h-10 ${service.iconColor}`} />
+              <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 p-5 md:p-8 lg:p-12">
+                <div className="space-y-4 md:space-y-6">
+                  <div className="flex items-start space-x-3 md:space-x-4">
+                    <div className={`${service.iconBg} p-3 md:p-4 rounded-xl flex-shrink-0`}>
+                      <service.icon className={`w-8 h-8 md:w-10 md:h-10 ${service.iconColor}`} />
                     </div>
                     <div>
-                      <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+                      <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-1 md:mb-2">
                         {service.title}
                       </h3>
-                      <p className={`text-lg font-medium ${service.iconColor} mb-4`}>
+                      <p className={`text-sm md:text-lg font-medium ${service.iconColor} mb-2 md:mb-4`}>
                         {service.subtitle}
                       </p>
                     </div>
                   </div>
 
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                  <p className="text-sm md:text-lg text-gray-700 leading-relaxed">
                     {service.description}
                   </p>
 
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-3 gap-2 md:gap-4">
                     {service.results.map((result, resultIndex) => (
-                      <div key={resultIndex} className="bg-white rounded-lg p-4 text-center">
-                        <div className="text-2xl font-bold text-gray-900 mb-1">
+                      <div key={resultIndex} className="bg-white rounded-lg p-3 md:p-4 text-center">
+                        <div className="text-lg md:text-2xl font-bold text-gray-900 mb-1">
                           {result.value}
                         </div>
-                        <div className="text-sm text-gray-600">{result.label}</div>
+                        <div className="text-xs md:text-sm text-gray-600">{result.label}</div>
                       </div>
                     ))}
                   </div>
 
                   <button
                     onClick={() => handleNavigate(service.path)}
-                    className={`${service.buttonColor} text-white px-8 py-4 rounded-lg transition-colors font-medium text-lg inline-flex items-center space-x-2 group w-full justify-center lg:w-auto`}
+                    className={`${service.buttonColor} text-white px-6 md:px-8 py-3 md:py-4 rounded-lg transition-colors font-medium text-base md:text-lg inline-flex items-center space-x-2 group w-full justify-center lg:w-auto`}
                   >
                     <span>Saiba Mais</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
 
-                <div className="space-y-4">
-                  <h4 className="text-xl font-bold text-gray-900 mb-4">O que está incluído:</h4>
-                  <div className="space-y-3">
+                <div className="space-y-3 md:space-y-4">
+                  <h4 className="text-base md:text-xl font-bold text-gray-900 mb-3 md:mb-4">O que está incluído:</h4>
+                  <div className="space-y-2 md:space-y-3">
                     {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start space-x-3 bg-white rounded-lg p-4">
-                        <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700 leading-relaxed">{feature}</span>
+                      <div key={featureIndex} className="flex items-start space-x-3 bg-white rounded-lg p-3 md:p-4">
+                        <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm md:text-base text-gray-700 leading-relaxed">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -251,32 +251,32 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 lg:p-12 text-white text-center">
+        <div className="mt-8 md:mt-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-5 md:p-8 lg:p-12 text-white text-center">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center justify-center space-x-4 mb-6">
-              <Star className="w-8 h-8 text-yellow-400" />
-              <h3 className="text-3xl font-bold">Por Que Escolher a Eleve Leads?</h3>
-              <Star className="w-8 h-8 text-yellow-400" />
+            <div className="flex items-center justify-center space-x-3 md:space-x-4 mb-4 md:mb-6">
+              <Star className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
+              <h3 className="text-xl md:text-3xl font-bold">Por Que Escolher a Eleve Leads?</h3>
+              <Star className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
             </div>
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+            <p className="text-base md:text-xl text-blue-100 mb-6 md:mb-8 leading-relaxed">
               Somos especialistas certificados com resultados comprovados em Google Meu Negócio, SEO Local,
               Criação de Sites e Google Ads. Focamos em negócios locais e geramos leads qualificados com ROI demonstrado.
             </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white bg-opacity-20 rounded-lg p-6">
-                <TrendingUp className="w-10 h-10 mx-auto mb-3 text-blue-200" />
-                <div className="text-2xl font-bold mb-2">+300%</div>
-                <div className="text-blue-100">ROI Médio dos Clientes</div>
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+              <div className="bg-white bg-opacity-20 rounded-lg p-4 md:p-6">
+                <TrendingUp className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-2 md:mb-3 text-blue-200" />
+                <div className="text-xl md:text-2xl font-bold mb-1 md:mb-2">+300%</div>
+                <div className="text-sm text-blue-100">ROI Médio dos Clientes</div>
               </div>
-              <div className="bg-white bg-opacity-20 rounded-lg p-6">
-                <Star className="w-10 h-10 mx-auto mb-3 text-blue-200" />
-                <div className="text-2xl font-bold mb-2">5.0</div>
-                <div className="text-blue-100">Avaliação em Resultados</div>
+              <div className="bg-white bg-opacity-20 rounded-lg p-4 md:p-6">
+                <Star className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-2 md:mb-3 text-blue-200" />
+                <div className="text-xl md:text-2xl font-bold mb-1 md:mb-2">5.0</div>
+                <div className="text-sm text-blue-100">Avaliação em Resultados</div>
               </div>
-              <div className="bg-white bg-opacity-20 rounded-lg p-6">
-                <Zap className="w-10 h-10 mx-auto mb-3 text-blue-200" />
-                <div className="text-2xl font-bold mb-2">100+</div>
-                <div className="text-blue-100">Empresas Atendidas</div>
+              <div className="bg-white bg-opacity-20 rounded-lg p-4 md:p-6">
+                <Zap className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-2 md:mb-3 text-blue-200" />
+                <div className="text-xl md:text-2xl font-bold mb-1 md:mb-2">100+</div>
+                <div className="text-sm text-blue-100">Empresas Atendidas</div>
               </div>
             </div>
             <button
@@ -286,10 +286,10 @@ const Services = () => {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="mt-8 bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg inline-flex items-center space-x-2 group"
+              className="mt-6 md:mt-8 bg-white text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-base md:text-lg inline-flex items-center space-x-2 group"
             >
               <span>Solicitar Diagnóstico Gratuito</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </div>

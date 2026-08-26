@@ -33,10 +33,10 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
           </button>
           
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
               Política de <span className="text-blue-600">Privacidade</span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
               Na Eleva Leads, sua privacidade é nossa prioridade. Conheça como coletamos, usamos e protegemos suas informações.
             </p>
             <div className="flex items-center justify-center space-x-4 mt-6 text-gray-500">
@@ -53,7 +53,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
           <div className="prose prose-lg max-w-none">
             
             {/* Introdução */}
-            <div className="mb-12">
+            <div className="mb-6 md:mb-12">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-blue-100 p-2 rounded-lg">
                   <Eye className="w-6 h-6 text-blue-600" />
@@ -69,7 +69,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* Informações Coletadas */}
-            <div className="mb-12">
+            <div className="mb-6 md:mb-12">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-green-100 p-2 rounded-lg">
                   <FileText className="w-6 h-6 text-green-600" />
@@ -77,7 +77,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
                 <h2 className="text-2xl font-bold text-gray-900">2. Informações que Coletamos</h2>
               </div>
               
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">2.1 Informações Fornecidas por Você</h3>
+              <h3 className="text-base md:text-xl font-semibold text-gray-900 mb-4">2.1 Informações Fornecidas por Você</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
                 <li>Nome completo</li>
                 <li>Endereço de e-mail</li>
@@ -88,7 +88,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
                 <li>Outras informações fornecidas voluntariamente em formulários</li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">2.2 Informações Coletadas Automaticamente</h3>
+              <h3 className="text-base md:text-xl font-semibold text-gray-900 mb-4">2.2 Informações Coletadas Automaticamente</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li>Endereço IP</li>
                 <li>Tipo de navegador e versão</li>
@@ -100,7 +100,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* Como Usamos */}
-            <div className="mb-12">
+            <div className="mb-6 md:mb-12">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-purple-100 p-2 rounded-lg">
                   <Lock className="w-6 h-6 text-purple-600" />
@@ -124,7 +124,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* Compartilhamento */}
-            <div className="mb-12">
+            <div className="mb-6 md:mb-12">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-orange-100 p-2 rounded-lg">
                   <Shield className="w-6 h-6 text-orange-600" />
@@ -150,7 +150,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* Segurança */}
-            <div className="mb-12">
+            <div className="mb-6 md:mb-12">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-red-100 p-2 rounded-lg">
                   <Lock className="w-6 h-6 text-red-600" />
@@ -171,7 +171,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* Seus Direitos */}
-            <div className="mb-12">
+            <div className="mb-6 md:mb-12">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-indigo-100 p-2 rounded-lg">
                   <FileText className="w-6 h-6 text-indigo-600" />
@@ -194,7 +194,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* Cookies */}
-            <div className="mb-12">
+            <div className="mb-6 md:mb-12">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-yellow-100 p-2 rounded-lg">
                   <Eye className="w-6 h-6 text-yellow-600" />
@@ -219,7 +219,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* Retenção */}
-            <div className="mb-12">
+            <div className="mb-6 md:mb-12">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-gray-100 p-2 rounded-lg">
                   <FileText className="w-6 h-6 text-gray-600" />
@@ -233,7 +233,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* Alterações */}
-            <div className="mb-12">
+            <div className="mb-6 md:mb-12">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-teal-100 p-2 rounded-lg">
                   <Shield className="w-6 h-6 text-teal-600" />
@@ -247,7 +247,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* Contato */}
-            <div className="bg-blue-50 rounded-2xl p-8">
+            <div className="bg-blue-50 rounded-2xl p-5 md:p-8">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-blue-100 p-2 rounded-lg">
                   <Mail className="w-6 h-6 text-blue-600" />
@@ -259,7 +259,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ setCurrentPage }) => {
                 Se você tiver dúvidas sobre esta Política de Privacidade ou quiser exercer seus direitos, entre em contato conosco:
               </p>
               
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-blue-600" />
                   <div>

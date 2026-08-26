@@ -165,18 +165,18 @@ const WhereWeServe = () => {
         canonical="https://elevaleads.com/where-we-serve"
       />
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
+      <section className="py-10 md:py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+          <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
             Seu Negócio no{' '}
             <span className="text-blue-600">Google Maps</span>,{' '}
             <span className="text-blue-600">Onde Estiver</span>
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
+          <p className="text-base md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
             Muitos empresários se perguntam: "Vocês atendem na minha cidade?" A resposta é simples: atendemos em todo o Brasil. O Google Meu Negócio é 100% digital, e nossa expertise não tem fronteiras geográficas.
           </p>
           <div className="bg-blue-100 rounded-lg p-6 inline-block">
-            <p className="text-blue-800 font-medium text-lg">
+            <p className="text-blue-800 font-medium text-base md:text-lg">
               🌎 <strong>Atendimento Nacional</strong> • 🚀 <strong>Resultados Locais</strong> • 📱 <strong>Gestão Remota</strong>
             </p>
           </div>
@@ -184,22 +184,22 @@ const WhereWeServe = () => {
       </section>
 
       {/* Nossa Presença Geográfica */}
-      <section className="py-20 bg-white">
+      <section className="py-10 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Nossa Presença e Foco Geográfico</h2>
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-6">Nossa Presença e Foco Geográfico</h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
               Embora atendamos todo o Brasil, temos expertise especial nas principais regiões metropolitanas, onde a competição digital é mais acirrada e os resultados mais impactantes.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
             {majorCities.map((region, index) => (
               <div key={index} className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
                 <div className="flex items-center mb-4">
                   <MapPin className="w-6 h-6 text-blue-600 mr-3" />
-                  <h3 className="text-xl font-bold text-gray-900">{region.region}</h3>
+                  <h3 className="text-base md:text-xl font-bold text-gray-900">{region.region}</h3>
                 </div>
                 <div className="space-y-2 mb-4">
                   {region.cities.map((city, cityIndex) => (
@@ -217,9 +217,9 @@ const WhereWeServe = () => {
           </div>
 
           <div className="text-center mt-12">
-            <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-2xl p-8">
+            <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-2xl p-5 md:p-8">
               <h3 className="text-2xl font-bold mb-4">Não viu sua cidade?</h3>
-              <p className="text-blue-100 text-lg mb-6">
+              <p className="text-blue-100 text-base md:text-lg mb-6">
                 Não se preocupe! Atendemos <strong>todas as cidades do Brasil</strong>. Cada negócio local tem potencial único, independente do tamanho da cidade.
               </p>
               <button 
@@ -237,7 +237,7 @@ const WhereWeServe = () => {
       {/* Formulário de Contato Modal */}
       {showContactForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-2xl p-5 md:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-2xl font-bold text-gray-900">Fale Sobre Sua Cidade</h3>
               <button 
@@ -270,7 +270,7 @@ const WhereWeServe = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                  className="w-full px-3 py-2.5 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   placeholder="Seu nome completo"
                 />
               </div>
@@ -286,7 +286,7 @@ const WhereWeServe = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                  className="w-full px-3 py-2.5 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   placeholder="seu@email.com"
                 />
               </div>
@@ -302,7 +302,7 @@ const WhereWeServe = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                  className="w-full px-3 py-2.5 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   placeholder="(11) 99999-9999"
                 />
               </div>
@@ -318,7 +318,7 @@ const WhereWeServe = () => {
                   value={formData.company}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                  className="w-full px-3 py-2.5 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   placeholder="Nome da sua empresa"
                 />
               </div>
@@ -334,7 +334,7 @@ const WhereWeServe = () => {
                   value={formData.city}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                  className="w-full px-3 py-2.5 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   placeholder="Cidade, Estado"
                 />
               </div>
@@ -352,25 +352,25 @@ const WhereWeServe = () => {
       )}
 
       {/* Como Atuamos Sem Ponto Físico */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-10 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Como Atuamos Sem Ponto Físico</h2>
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-6">Como Atuamos Sem Ponto Físico</h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
               A ausência de um escritório físico não é uma limitação - é nossa vantagem competitiva. Isso nos permite focar 100% na excelência digital e oferecer preços mais competitivos.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-8 mb-8 md:mb-16">
             {advantages.map((advantage, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div key={index} className="bg-white rounded-xl p-5 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-start space-x-4">
                   <div className="bg-blue-100 p-3 rounded-lg">
-                    <advantage.icon className="w-8 h-8 text-blue-600" />
+                    <advantage.icon className="w-6 h-6 md:w-8 md:h-8 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{advantage.title}</h3>
+                    <h3 className="text-base md:text-xl font-bold text-gray-900 mb-3">{advantage.title}</h3>
                     <p className="text-gray-600 leading-relaxed">{advantage.description}</p>
                   </div>
                 </div>
@@ -379,32 +379,32 @@ const WhereWeServe = () => {
           </div>
 
           {/* Processo de Trabalho */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <div className="bg-white rounded-2xl p-5 md:p-8 shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Nosso Processo de Trabalho Remoto</h3>
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-4 gap-4 md:gap-6">
               <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-blue-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-blue-600">1</span>
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Contato Inicial</h4>
                 <p className="text-gray-600 text-sm">WhatsApp, e-mail ou videoconferência para entender suas necessidades</p>
               </div>
               <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-blue-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-blue-600">2</span>
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Análise Remota</h4>
                 <p className="text-gray-600 text-sm">Auditoria completa do seu perfil e concorrência local via ferramentas especializadas</p>
               </div>
               <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-blue-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-blue-600">3</span>
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Execução Digital</h4>
                 <p className="text-gray-600 text-sm">Otimização completa realizada 100% online com acesso aos seus perfis</p>
               </div>
               <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-blue-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-blue-600">4</span>
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Acompanhamento</h4>
@@ -416,19 +416,19 @@ const WhereWeServe = () => {
       </section>
 
       {/* Seu Negócio no Topo */}
-      <section className="py-20 bg-white">
+      <section className="py-10 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-6">
               Seu Negócio no Topo do Google, <span className="text-blue-600">Onde Quer que Ele Esteja</span>
             </h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
+            <div className="space-y-4 md:space-y-6">
               <h3 className="text-2xl font-bold text-gray-900">A Localização Digital é o que Importa</h3>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-sm md:text-lg text-gray-600 leading-relaxed">
                 No mundo digital, não importa onde nossa agência está fisicamente localizada. O que importa é onde queremos levar seu negócio: <strong>ao topo das buscas locais na sua cidade</strong>.
               </p>
               <div className="space-y-4">
@@ -463,9 +463,9 @@ const WhereWeServe = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-5 md:p-8">
               <div className="text-center mb-6">
-                <h4 className="text-xl font-bold text-gray-900 mb-2">Resultados Comprovados</h4>
+                <h4 className="text-base md:text-xl font-bold text-gray-900 mb-2">Resultados Comprovados</h4>
                 <p className="text-gray-600">Independente da localização</p>
               </div>
               <div className="space-y-4">
@@ -494,19 +494,19 @@ const WhereWeServe = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+      <section className="py-10 md:py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">
             Pronto para Dominar as Buscas na Sua Cidade?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-base md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Não importa onde você está. O que importa é onde queremos levar seu negócio: ao topo do Google na sua região.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <button 
               onClick={handleGoToContact}
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg inline-flex items-center justify-center space-x-2 group"
+              className="bg-white text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-base md:text-lg inline-flex items-center justify-center space-x-2 group"
             >
               <span>Solicitar Análise Gratuita do Meu Perfil</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

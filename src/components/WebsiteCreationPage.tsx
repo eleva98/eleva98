@@ -170,18 +170,18 @@ const WebsiteCreationPage: React.FC<WebsiteCreationPageProps> = ({ setCurrentPag
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 to-white">
+      <section className="py-10 md:py-20 bg-gradient-to-br from-purple-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+          <div className="text-center mb-8 md:mb-16">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 md:mb-6">
               Sites de <span className="text-purple-600">Alta Conversão</span><br />
               com <span className="text-green-600">SEO Máximo</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-base md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6 md:mb-8">
               Desenvolvemos sites profissionais que não apenas impressionam visualmente, mas convertem visitantes em clientes. 
               Com SEO técnico completo e performance otimizada para os melhores resultados no Google.
             </p>
-            <div className="flex items-center justify-center space-x-6 mb-8">
+            <div className="flex items-center justify-center space-x-4 md:space-x-6 mb-6 md:mb-8">
               <div className="flex items-center space-x-2">
                 <Zap className="w-5 h-5 text-purple-600" />
                 <span className="text-gray-700 font-medium">Performance Máxima</span>
@@ -193,7 +193,7 @@ const WebsiteCreationPage: React.FC<WebsiteCreationPageProps> = ({ setCurrentPag
             </div>
             <button 
               onClick={handleGoToContact}
-              className="bg-purple-600 text-white px-8 py-4 rounded-lg hover:bg-purple-700 transition-colors font-medium text-lg inline-flex items-center space-x-2 group"
+              className="bg-purple-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-purple-700 transition-colors font-medium text-base md:text-lg inline-flex items-center space-x-2 group"
             >
               <span>Solicitar Proposta de Site</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -203,24 +203,24 @@ const WebsiteCreationPage: React.FC<WebsiteCreationPageProps> = ({ setCurrentPag
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-10 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">
               Por Que Investir em um Site Profissional?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
               Seu site é sua vitrine digital 24/7. Cada elemento é estrategicamente pensado para converter visitantes em clientes
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="text-center group">
-                <div className="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-600 transition-colors duration-300">
-                  <benefit.icon className="w-10 h-10 text-purple-600 group-hover:text-white transition-colors duration-300" />
+                <div className="bg-purple-100 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:bg-purple-600 transition-colors duration-300">
+                  <benefit.icon className="w-8 h-8 md:w-10 md:h-10 text-purple-600 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                <h3 className="text-base md:text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">{benefit.description}</p>
                 <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
                   {benefit.metric}
@@ -232,28 +232,28 @@ const WebsiteCreationPage: React.FC<WebsiteCreationPageProps> = ({ setCurrentPag
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-10 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">
               Nossos Serviços de Criação de Sites
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
               Desenvolvimento completo com foco em resultados e performance excepcional
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="bg-purple-100 p-4 rounded-xl mr-4">
+              <div key={index} className="bg-white rounded-xl p-5 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center mb-4 md:mb-6">
+                  <div className="bg-purple-100 p-3 md:p-4 rounded-xl mr-3 md:mr-4">
                     <service.icon className="w-8 h-8 text-purple-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
+                  <h3 className="text-base md:text-xl font-bold text-gray-900">{service.title}</h3>
                 </div>
                 
-                <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                <p className="text-gray-600 mb-4 md:mb-6 leading-relaxed">{service.description}</p>
                 
                 <div className="space-y-3">
                   {service.features.map((feature, featureIndex) => (
@@ -270,20 +270,20 @@ const WebsiteCreationPage: React.FC<WebsiteCreationPageProps> = ({ setCurrentPag
       </section>
 
       {/* Technologies Section */}
-      <section className="py-20 bg-white">
+      <section className="py-10 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">
               Tecnologias de Ponta
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
               Utilizamos as melhores e mais modernas tecnologias para garantir performance e escalabilidade
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
             {technologies.map((tech, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+              <div key={index} className="bg-gray-50 p-4 md:p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
                 <div className="h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded mb-4 flex items-center justify-center">
                   <span className="text-white font-bold text-sm">{tech.name}</span>
                 </div>
@@ -295,24 +295,24 @@ const WebsiteCreationPage: React.FC<WebsiteCreationPageProps> = ({ setCurrentPag
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-10 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">
               Nosso Processo de Desenvolvimento
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
               Metodologia comprovada para criar sites que realmente convertem
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-5 md:gap-8">
             {process.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
                   <span className="text-2xl font-bold text-purple-600">{step.step}</span>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
+                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{step.description}</p>
               </div>
             ))}
@@ -321,24 +321,24 @@ const WebsiteCreationPage: React.FC<WebsiteCreationPageProps> = ({ setCurrentPag
       </section>
 
       {/* Portfolio Examples */}
-      <section className="py-20 bg-white">
+      <section className="py-10 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">
               Resultados de Projetos Reais
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
               Veja como nossos sites transformaram os resultados de diferentes tipos de negócios
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-5 md:gap-8">
             {portfolioExamples.map((example, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8 text-center">
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div key={index} className="bg-gray-50 rounded-xl p-5 md:p-8 text-center">
+                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
                   <Globe className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{example.category}</h3>
+                <h3 className="text-base md:text-xl font-bold text-gray-900 mb-3">{example.category}</h3>
                 <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg font-bold mb-4">
                   {example.result}
                 </div>
@@ -357,37 +357,37 @@ const WebsiteCreationPage: React.FC<WebsiteCreationPageProps> = ({ setCurrentPag
       </section>
 
       {/* Performance Guarantee */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-indigo-700 text-white">
+      <section className="py-10 md:py-20 bg-gradient-to-r from-purple-600 to-indigo-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-6">Performance Otimizada</h2>
-            <p className="text-xl text-purple-100 max-w-3xl mx-auto">
+          <div className="text-center mb-6 md:mb-12">
+            <h2 className="text-xl md:text-3xl font-bold mb-4 md:mb-6">Performance Otimizada</h2>
+            <p className="text-base md:text-xl text-purple-100 max-w-3xl mx-auto">
               Nossos sites são desenvolvidos para alcançar a melhor pontuação possível em todas as métricas do Google
             </p>
           </div>
           
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-4 gap-4 md:gap-6">
             <div className="text-center">
-              <div className="bg-white bg-opacity-20 rounded-lg p-6 mb-4">
-                <div className="text-2xl font-bold text-yellow-300 mb-2">Máxima</div>
+              <div className="bg-white bg-opacity-20 rounded-lg p-4 md:p-6 mb-3 md:mb-4">
+                <div className="text-xl md:text-2xl font-bold text-yellow-300 mb-2">Máxima</div>
                 <div className="text-purple-100">Performance</div>
               </div>
             </div>
             <div className="text-center">
-              <div className="bg-white bg-opacity-20 rounded-lg p-6 mb-4">
-                <div className="text-2xl font-bold text-green-300 mb-2">Máxima</div>
+              <div className="bg-white bg-opacity-20 rounded-lg p-4 md:p-6 mb-3 md:mb-4">
+                <div className="text-xl md:text-2xl font-bold text-green-300 mb-2">Máxima</div>
                 <div className="text-purple-100">Acessibilidade</div>
               </div>
             </div>
             <div className="text-center">
-              <div className="bg-white bg-opacity-20 rounded-lg p-6 mb-4">
-                <div className="text-2xl font-bold text-orange-300 mb-2">Máxima</div>
+              <div className="bg-white bg-opacity-20 rounded-lg p-4 md:p-6 mb-3 md:mb-4">
+                <div className="text-xl md:text-2xl font-bold text-orange-300 mb-2">Máxima</div>
                 <div className="text-purple-100">Melhores Práticas</div>
               </div>
             </div>
             <div className="text-center">
-              <div className="bg-white bg-opacity-20 rounded-lg p-6 mb-4">
-                <div className="text-2xl font-bold text-blue-300 mb-2">Máxima</div>
+              <div className="bg-white bg-opacity-20 rounded-lg p-4 md:p-6 mb-3 md:mb-4">
+                <div className="text-xl md:text-2xl font-bold text-blue-300 mb-2">Máxima</div>
                 <div className="text-purple-100">SEO</div>
               </div>
             </div>
@@ -396,26 +396,26 @@ const WebsiteCreationPage: React.FC<WebsiteCreationPageProps> = ({ setCurrentPag
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="py-20 bg-white">
+      <section id="contact" className="py-10 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
             Pronto para ter um Site que Realmente Converte?
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-base md:text-xl text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
             Solicite uma proposta personalizada e descubra como podemos transformar sua presença online em uma máquina de gerar clientes.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <button 
               onClick={handleGoToContact}
-              className="bg-purple-600 text-white px-8 py-4 rounded-lg hover:bg-purple-700 transition-colors font-medium text-lg inline-flex items-center justify-center space-x-2 group"
+              className="bg-purple-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-purple-700 transition-colors font-medium text-base md:text-lg inline-flex items-center justify-center space-x-2 group"
             >
               <span>Solicitar Proposta Personalizada</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
-          <div className="flex items-center justify-center space-x-8 text-gray-600">
+          <div className="flex items-center justify-center space-x-4 md:space-x-8 text-gray-600">
             <div className="flex items-center space-x-2">
               <Clock className="w-5 h-5" />
               <span>Proposta em 24h</span>

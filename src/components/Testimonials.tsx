@@ -114,28 +114,28 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-gray-50">
+    <section id="testimonials" className="py-10 md:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
             Mais de 100 Clientes em Diversos{' '}
             <span className="text-blue-600">Segmentos Comprovam Resultados</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
             Profissionais liberais, clínicas, academias, restaurantes e empresas que aumentaram drasticamente seus leads e faturamento em poucos meses com nossa estratégia de SEO Local e Google Meu Negócio.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 relative flex flex-col h-full">
-              <div className="flex items-center mb-4">
+            <div key={index} className="bg-white rounded-lg p-4 md:p-6 shadow-md hover:shadow-lg transition-shadow duration-300 relative flex flex-col h-full">
+              <div className="flex items-center mb-3 md:mb-4">
                 {/* Renderizar imagem ou inicial */}
                 {testimonial.image.startsWith('http') ? (
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-3 flex-shrink-0"
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover mr-3 flex-shrink-0"
                     loading="lazy"
                     onError={(e) => {
                       const target = e.currentTarget;
@@ -143,15 +143,15 @@ const Testimonials = () => {
                       if (parent) {
                         // Criar placeholder com inicial
                         const placeholder = document.createElement('div');
-                        placeholder.className = 'w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0';
-                        placeholder.innerHTML = '<span class="text-blue-600 font-bold text-lg">' + testimonial.name.charAt(0) + '</span>';
+                        placeholder.className = 'w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0';
+                        placeholder.innerHTML = '<span class="text-blue-600 font-bold text-base md:text-lg">' + testimonial.name.charAt(0) + '</span>';
                         parent.replaceChild(placeholder, target);
                       }
                     }}
                   />
                 ) : (
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0">
-                    <span className="text-blue-600 font-bold text-lg">{testimonial.image}</span>
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0">
+                    <span className="text-blue-600 font-bold text-base md:text-lg">{testimonial.image}</span>
                   </div>
                 )}
                 <div>
@@ -171,8 +171,8 @@ const Testimonials = () => {
                 "{testimonial.testimonial}"
               </p>
 
-              <div className="bg-blue-50 rounded-lg p-3 text-center mt-auto">
-                <div className="text-xl font-bold text-blue-600">{testimonial.highlight}</div>
+              <div className="bg-blue-50 rounded-lg p-2.5 md:p-3 text-center mt-auto">
+                <div className="text-base md:text-xl font-bold text-blue-600">{testimonial.highlight}</div>
                 <div className="text-xs text-gray-600">Resultado comprovado</div>
               </div>
             </div>
