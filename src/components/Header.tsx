@@ -51,11 +51,11 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             className="flex items-center space-x-2 cursor-pointer" 
             onClick={() => handleNavigation('home')}
           >
-            <div className="h-36 flex items-center">
+            <div className="h-20 md:h-36 flex items-center">
               <img 
                 src="/eleve leads (5).png" 
                 alt="Eleva Leads" 
-                className="h-36 w-auto object-contain drop-shadow-sm"
+                className="h-20 md:h-36 w-auto object-contain drop-shadow-sm"
                 loading="eager"
                 onError={(e) => {
                   const target = e.currentTarget;
@@ -209,10 +209,10 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
-            <nav className="flex flex-col space-y-4">
+            <nav className="grid grid-cols-2 gap-x-3 gap-y-3">
               <button 
                 onClick={() => handleNavigation('home')}
-                className={`text-left transition-colors ${
+                className={`text-left text-sm transition-colors ${
                   currentPage === 'home' 
                     ? 'text-blue-600 font-medium' 
                     : 'text-gray-700 hover:text-blue-600'
@@ -222,7 +222,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <button 
                 onClick={() => handleNavigation('google-meu-negocio')}
-                className={`text-left transition-colors ${
+                className={`text-left text-sm transition-colors ${
                   currentPage === 'google-meu-negocio' 
                     ? 'text-blue-600 font-medium' 
                     : 'text-gray-700 hover:text-blue-600'
@@ -232,7 +232,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <button 
                 onClick={() => handleNavigation('criacao-de-sites')}
-                className={`text-left transition-colors ${
+                className={`text-left text-sm transition-colors ${
                   currentPage === 'criacao-de-sites' 
                     ? 'text-purple-600 font-medium' 
                     : 'text-gray-700 hover:text-purple-600'
@@ -242,7 +242,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <button
                 onClick={() => handleNavigation('google-ads')}
-                className={`text-left transition-colors ${
+                className={`text-left text-sm transition-colors ${
                   currentPage === 'google-ads'
                     ? 'text-red-600 font-medium'
                     : 'text-gray-700 hover:text-red-600'
@@ -252,7 +252,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <button
                 onClick={() => handleNavigation('seo')}
-                className={`text-left transition-colors ${
+                className={`text-left text-sm transition-colors ${
                   currentPage === 'seo'
                     ? 'text-green-600 font-medium'
                     : 'text-gray-700 hover:text-green-600'
@@ -262,7 +262,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <button
                 onClick={() => handleNavigation('site-rental')}
-                className={`text-left transition-colors ${
+                className={`text-left text-sm transition-colors ${
                   currentPage === 'site-rental'
                     ? 'text-emerald-600 font-medium'
                     : 'text-gray-700 hover:text-emerald-600'
@@ -272,7 +272,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <button
                 onClick={() => handleNavigation('placas-inteligentes')}
-                className={`text-left transition-colors ${
+                className={`text-left text-sm transition-colors ${
                   currentPage === 'placas-inteligentes'
                     ? 'text-cyan-600 font-medium'
                     : 'text-gray-700 hover:text-cyan-600'
@@ -282,7 +282,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <button
                 onClick={() => handleNavigation('blog')}
-                className={`text-left transition-colors ${
+                className={`text-left text-sm transition-colors ${
                   currentPage === 'blog'
                     ? 'text-blue-600 font-medium'
                     : 'text-gray-700 hover:text-blue-600'
@@ -292,13 +292,13 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <button
                 onClick={() => handleScrollToSection('testimonials')}
-                className="text-gray-700 hover:text-blue-600 transition-colors text-left"
+                className="text-gray-700 hover:text-blue-600 transition-colors text-left text-sm"
               >
                 Casos de Sucesso
               </button>
               <button 
                 onClick={() => handleNavigation('about')}
-                className={`text-left transition-colors ${
+                className={`text-left text-sm transition-colors ${
                   currentPage === 'about' 
                     ? 'text-blue-600 font-medium' 
                     : 'text-gray-700 hover:text-blue-600'
@@ -308,7 +308,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <button 
                 onClick={() => handleNavigation('contact')}
-                className={`text-left transition-colors ${
+                className={`text-left text-sm transition-colors ${
                   currentPage === 'contact' 
                     ? 'text-blue-600 font-medium' 
                     : 'text-gray-700 hover:text-blue-600'
@@ -318,7 +318,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <button 
                 onClick={() => handleNavigation('contact')}
-                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium w-full"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
               >
                 Diagnóstico Gratuito
               </button>

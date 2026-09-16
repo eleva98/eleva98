@@ -30,20 +30,20 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 text-white py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <div 
               className="flex items-center space-x-2 cursor-pointer" 
               onClick={() => handleNavigation('home')}
             >
-              <div className="h-16 flex items-center">
+              <div className="h-12 md:h-16 flex items-center">
                 <img 
                   src="/eleve leads (5).png" 
                   alt="Eleva Leads" 
-                  className="h-16 w-auto object-contain"
+                  className="h-12 md:h-16 w-auto object-contain"
                   loading="lazy"
                   onError={(e) => {
                     const target = e.currentTarget;
@@ -59,16 +59,15 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
                 />
               </div>
             </div>
-            <p className="text-gray-400 leading-relaxed text-sm text-left -mt-2">
-              Especialistas em Google Meu Negócio e SEO Local.<br />
-              Transformamos sua presença online em resultados reais.
+            <p className="text-gray-400 leading-relaxed text-xs md:text-sm text-left -mt-2">
+              Especialistas em Google Meu Negócio e SEO Local.
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Serviços</h3>
-            <ul className="space-y-1 text-gray-400 text-sm">
+            <h3 className="text-base md:text-lg font-bold mb-3">Serviços</h3>
+            <ul className="space-y-1 text-gray-400 text-xs md:text-sm">
               <li>
                 <button 
                   onClick={() => handleNavigation('google-meu-negocio')}
@@ -122,8 +121,8 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
 
           {/* Company */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Empresa</h3>
-            <ul className="space-y-1 text-gray-400 text-sm">
+            <h3 className="text-base md:text-lg font-bold mb-3">Empresa</h3>
+            <ul className="space-y-1 text-gray-400 text-xs md:text-sm">
               <li>
                 <button 
                   onClick={() => handleNavigation('about')}
@@ -169,35 +168,33 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Contato</h3>
-            <div className="space-y-2">
+            <h3 className="text-base md:text-lg font-bold mb-3">Contato</h3>
+            <div className="space-y-1.5">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-blue-400" />
-                <span className="text-gray-400 text-sm">(51) 9437-3376</span>
+                <span className="text-gray-400 text-xs md:text-sm">(51) 9437-3376</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-blue-400" />
-                <span className="text-gray-400 text-sm">contato@eleveleads.com</span>
+                <span className="text-gray-400 text-xs md:text-sm">contato@eleveleads.com</span>
               </div>
               <div className="flex items-start space-x-2">
                 <Clock className="w-4 h-4 text-blue-400 mt-0.5" />
-                <div className="text-gray-400 text-sm">
-                  <p>Segunda a Sábado</p>
-                  <p>9h às 19h</p>
+                <div className="text-gray-400 text-xs md:text-sm">
+                  <p>Seg a Sáb · 9h às 19h</p>
                 </div>
               </div>
               <div className="flex items-start space-x-2">
                 <FileText className="w-4 h-4 text-blue-400 mt-0.5" />
-                <div className="text-gray-400 text-sm">
-                  <p>CNPJ</p>
-                  <p>36.588.967/0001-83</p>
+                <div className="text-gray-400 text-xs md:text-sm">
+                  <p>CNPJ 36.588.967/0001-83</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-6 pt-3">
+        <div className="border-t border-gray-800 mt-4 pt-3">
           <div className="text-center">
             <p className="text-gray-400 text-sm">
               © 2025 Eleve Leads. Todos os direitos reservados.
