@@ -153,6 +153,16 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </div>
             </div>
             
+            <button
+              onClick={() => handleNavigation('blog')}
+              className={`transition-colors ${
+                currentPage === 'blog'
+                  ? 'text-blue-600 font-medium'
+                  : 'text-gray-700 hover:text-blue-600'
+              }`}
+            >
+              Blog
+            </button>
             <button 
               onClick={() => handleNavigation('testimonials')}
               className="text-gray-700 hover:text-blue-600 transition-colors"
@@ -269,6 +279,16 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                 }`}
               >
                 Placas Inteligentes
+              </button>
+              <button
+                onClick={() => handleNavigation('blog')}
+                className={`text-left transition-colors ${
+                  currentPage === 'blog'
+                    ? 'text-blue-600 font-medium'
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
+              >
+                Blog
               </button>
               <button
                 onClick={() => handleScrollToSection('testimonials')}

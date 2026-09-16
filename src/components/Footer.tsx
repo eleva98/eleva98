@@ -141,14 +141,12 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
                 </button>
               </li>
               <li>
-                <a 
-                  href="https://blog.eleveleads.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <button
+                  onClick={() => handleNavigation('blog')}
                   className="hover:text-white transition-colors"
                 >
                   Blog
-                </a>
+                </button>
               </li>
               <li>
                 <button 

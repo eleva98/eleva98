@@ -21,6 +21,7 @@ import GoogleAdsPage from './components/GoogleAdsPage';
 import SEOPage from './components/SEOPage';
 import SiteRentalLanding from './components/SiteRentalLanding';
 import SmartSignsPage from './components/SmartSignsPage';
+import BlogPage from './components/BlogPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string | null>(null);
@@ -33,6 +34,7 @@ function App() {
     if (path === '/seo') return 'seo';
     if (path === '/aluguel-de-sites') return 'site-rental';
     if (path === '/placas-inteligentes') return 'placas-inteligentes';
+    if (path === '/blog') return 'blog';
     if (path === '/contato' || path === '/contact') return 'contact';
     if (path === '/sobre' || path === '/about') return 'about';
     if (path === '/onde-atendemos') return 'where-we-serve';
@@ -51,6 +53,7 @@ function App() {
       'seo': '/seo',
       'site-rental': '/aluguel-de-sites',
       'placas-inteligentes': '/placas-inteligentes',
+      'blog': '/blog',
       'contact': '/contato',
       'about': '/sobre',
       'where-we-serve': '/onde-atendemos',
@@ -107,6 +110,8 @@ function App() {
         return <SiteRentalLanding />;
       case 'placas-inteligentes':
         return <SmartSignsPage setCurrentPage={setCurrentPage} />;
+      case 'blog':
+        return <BlogPage setCurrentPage={setCurrentPage} />;
       case 'testimonials':
         return (
           <>
