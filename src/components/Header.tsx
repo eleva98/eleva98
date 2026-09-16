@@ -140,6 +140,15 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                     <div className="font-medium">Aluguel de Sites</div>
                     <div className="text-sm text-gray-500">A partir de R$ 97/mês</div>
                   </button>
+                  <button
+                    onClick={() => handleNavigation('placas-inteligentes')}
+                    className={`block w-full text-left px-4 py-3 hover:bg-cyan-50 transition-colors ${
+                      currentPage === 'placas-inteligentes' ? 'text-cyan-600 bg-cyan-50' : 'text-gray-700'
+                    }`}
+                  >
+                    <div className="font-medium">Placas Inteligentes</div>
+                    <div className="text-sm text-gray-500">QR Code + NFC</div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -250,6 +259,16 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                 }`}
               >
                 Aluguel de Sites
+              </button>
+              <button
+                onClick={() => handleNavigation('placas-inteligentes')}
+                className={`text-left transition-colors ${
+                  currentPage === 'placas-inteligentes'
+                    ? 'text-cyan-600 font-medium'
+                    : 'text-gray-700 hover:text-cyan-600'
+                }`}
+              >
+                Placas Inteligentes
               </button>
               <button
                 onClick={() => handleScrollToSection('testimonials')}

@@ -109,6 +109,14 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
                   Aluguel de Sites
                 </button>
               </li>
+              <li>
+                <button
+                  onClick={() => handleNavigation('placas-inteligentes')}
+                  className="hover:text-white transition-colors"
+                >
+                  Placas Inteligentes
+                </button>
+              </li>
             </ul>
           </div>
 
