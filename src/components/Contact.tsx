@@ -38,7 +38,7 @@ const Contact = () => {
         access_key: '92e93c1d-390a-42f4-8803-59feb248f95c',
         subject: 'Novo contato - Eleve Leads',
         from_name: 'Site Eleve Leads',
-        to: 'contato@eleveleads.com'
+        redirect: 'false'
       };
 
       Object.entries(formData).forEach(([key, value]) => {
@@ -64,7 +64,7 @@ const Contact = () => {
 
       const result = await response.json();
 
-      if (response.ok && result.success) {
+      if (result.success) {
         setSubmitStatus('success');
         setFormData({
           nome: '',
