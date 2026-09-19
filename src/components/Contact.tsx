@@ -29,38 +29,42 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Input validation and sanitization
     const sanitizeInput = (input: string) => {
       return input.trim().replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
     };
 
     try {
-      // Filtrar apenas campos preenchidos
-      const dataToSend = Object.entries(formData).reduce((acc, [key, value]) => {
-        if (value.trim() !== '') {
-          acc[key] = sanitizeInput(value);
-        }
-        return acc;
-      }, {} as Record<string, string>);
+      const dataToSend: Record<string, string> = {
+        access_key: '92e93c1d-390a-42f4-8803-59feb248f95c',
+        subject: 'Novo contato - Eleve Leads',
+        from_name: 'Site Eleve Leads',
+        to: 'contato@eleveleads.com'
+      };
 
-      console.log('📋 Dados que serão enviados para o Make (página contato):', dataToSend);
+      Object.entries(formData).forEach(([key, value]) => {
+        if (value.trim() !== '') {
+          dataToSend[key] = sanitizeInput(value);
+        }
+      });
 
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-      
-      const response = await fetch('https://hook.us2.make.com/xswgd4rqusxbvnlzoct3uol3gfqe5y7u', {
+      const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify(dataToSend),
         signal: controller.signal
       });
-      
+
       clearTimeout(timeoutId);
 
-      if (response.ok) {
-        console.log('✅ Dados enviados com sucesso para o Make');
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         setSubmitStatus('success');
         setFormData({
           nome: '',
@@ -72,10 +76,10 @@ const Contact = () => {
           mensagem: ''
         });
       } else {
-        throw new Error('Erro na resposta do servidor');
+        throw new Error(result.message || 'Erro na resposta do servidor');
       }
     } catch (error) {
-      console.error('❌ Erro ao enviar dados para o Make:', error);
+      console.error('Erro ao enviar formulário:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
