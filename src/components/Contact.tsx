@@ -29,42 +29,38 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    // Input validation and sanitization
     const sanitizeInput = (input: string) => {
       return input.trim().replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
     };
 
     try {
-      const dataToSend: Record<string, string> = {
-        access_key: '9b813f01-34a7-4805-a8c6-f05e3e4a1b24',
-        subject: 'Novo contato - Eleve Leads',
-        from_name: 'Site Eleve Leads',
-        redirect: 'false'
-      };
-
-      Object.entries(formData).forEach(([key, value]) => {
+      // Filtrar apenas campos preenchidos
+      const dataToSend = Object.entries(formData).reduce((acc, [key, value]) => {
         if (value.trim() !== '') {
-          dataToSend[key] = sanitizeInput(value);
+          acc[key] = sanitizeInput(value);
         }
-      });
+        return acc;
+      }, {} as Record<string, string>);
+
+      console.log('📋 Dados que serão enviados para o Make (página contato):', dataToSend);
 
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 15000);
-
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+      
+      const response = await fetch('https://hook.us2.make.com/xswgd4rqusxbvnlzoct3uol3gfqe5y7u', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
         },
         body: JSON.stringify(dataToSend),
         signal: controller.signal
       });
-
+      
       clearTimeout(timeoutId);
 
-      const result = await response.json();
-
-      if (result.success) {
+      if (response.ok) {
+        console.log('✅ Dados enviados com sucesso para o Make');
         setSubmitStatus('success');
         setFormData({
           nome: '',
@@ -76,10 +72,10 @@ const Contact = () => {
           mensagem: ''
         });
       } else {
-        throw new Error(result.message || 'Erro na resposta do servidor');
+        throw new Error('Erro na resposta do servidor');
       }
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
+      console.error('❌ Erro ao enviar dados para o Make:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
