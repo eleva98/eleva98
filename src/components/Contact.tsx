@@ -4,12 +4,8 @@ import SEOHead from './SEOHead';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    telefone: '',
     empresa: '',
-    setor: '',
-    cidade: '',
+    email: '',
     mensagem: ''
   });
 
@@ -63,12 +59,8 @@ const Contact = () => {
         console.log('✅ Dados enviados com sucesso para o Make');
         setSubmitStatus('success');
         setFormData({
-          nome: '',
-          email: '',
-          telefone: '',
           empresa: '',
-          setor: '',
-          cidade: '',
+          email: '',
           mensagem: ''
         });
       } else {
@@ -81,17 +73,6 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
-
-  const setores = [
-    'Saúde/Clínicas',
-    'Educação',
-    'Varejo/Comércio',
-    'Serviços',
-    'Indústria',
-    'Tecnologia',
-    'Consultoria',
-    'Outros'
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -203,109 +184,36 @@ const Contact = () => {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="nome" className="block text-sm font-medium text-gray-700 mb-2">
-                    Nome Completo *
-                  </label>
-                  <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    value={formData.nome}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Seu nome completo"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    E-mail Profissional *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="seu@email.com"
-                  />
-                </div>
+              <div>
+                <label htmlFor="empresa" className="block text-sm font-medium text-gray-700 mb-2">
+                  Nome da Empresa *
+                </label>
+                <input
+                  type="text"
+                  id="empresa"
+                  name="empresa"
+                  value={formData.empresa}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Nome da sua empresa"
+                />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="telefone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Telefone/WhatsApp *
-                  </label>
-                  <input
-                    type="tel"
-                    id="telefone"
-                    name="telefone"
-                    value={formData.telefone}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="(11) 99999-9999"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="empresa" className="block text-sm font-medium text-gray-700 mb-2">
-                    Nome da Empresa *
-                  </label>
-                  <input
-                    type="text"
-                    id="empresa"
-                    name="empresa"
-                    value={formData.empresa}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Nome da sua empresa"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="cidade" className="block text-sm font-medium text-gray-700 mb-2">
-                    Cidade
-                  </label>
-                  <input
-                    type="text"
-                    id="cidade"
-                    name="cidade"
-                    value={formData.cidade}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Sua cidade"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="setor" className="block text-sm font-medium text-gray-700 mb-2">
-                    Setor de Atuação
-                  </label>
-                  <select
-                    id="setor"
-                    name="setor"
-                    value={formData.setor}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    <option value="">Selecione um setor</option>
-                    {setores.map((setor) => (
-                      <option key={setor} value={setor}>
-                        {setor}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  E-mail *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="seu@email.com"
+                />
               </div>
 
               <div>

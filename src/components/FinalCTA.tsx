@@ -3,12 +3,9 @@ import { ArrowRight, Clock, CheckCircle2, Phone } from 'lucide-react';
 
 const FinalCTA = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    empresa: '',
     email: '',
-    phone: '',
-    company: '',
-    sector: '',
-    city: ''
+    mensagem: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
@@ -21,7 +18,7 @@ const FinalCTA = () => {
     'Sem compromisso ou taxas ocultas'
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -40,7 +37,7 @@ const FinalCTA = () => {
     };
 
     // Validar se todos os campos obrigatórios estão preenchidos
-    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.company.trim()) {
+    if (!formData.empresa.trim() || !formData.email.trim()) {
       setSubmitMessage('Por favor, preencha todos os campos obrigatórios.');
       setIsSubmitting(false);
       return;
@@ -55,19 +52,14 @@ const FinalCTA = () => {
     }
     // Criar payload apenas com dados preenchidos pelo usuário
     const payload: Record<string, string> = {};
-    
+
     // Campos obrigatórios
-    payload.nome = sanitizeInput(formData.name);
+    payload.empresa = sanitizeInput(formData.empresa);
     payload.email = sanitizeInput(formData.email);
-    payload.telefone = sanitizeInput(formData.phone);
-    payload.empresa = sanitizeInput(formData.company);
-    
-    // Campos opcionais - só adiciona se preenchidos
-    if (formData.sector && formData.sector.trim()) {
-      payload.setor = sanitizeInput(formData.sector);
-    }
-    if (formData.city && formData.city.trim()) {
-      payload.cidade = sanitizeInput(formData.city);
+
+    // Campo opcional
+    if (formData.mensagem && formData.mensagem.trim()) {
+      payload.mensagem = sanitizeInput(formData.mensagem);
     }
 
     console.log('📋 Dados que serão enviados para o Make:', payload);
@@ -93,12 +85,9 @@ const FinalCTA = () => {
         console.log('✅ Dados enviados com sucesso para o Make');
         setSubmitMessage('Obrigado! Seus dados foram enviados com sucesso.');
         setFormData({
-          name: '',
+          empresa: '',
           email: '',
-          phone: '',
-          company: '',
-          sector: '',
-          city: ''
+          mensagem: ''
         });
       } else {
         console.error('❌ Erro na resposta do Make:', response.status);
@@ -171,24 +160,24 @@ const FinalCTA = () => {
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Nome Completo *
+                <label htmlFor="empresa" className="block text-sm font-medium text-gray-700 mb-2">
+                  Nome da Empresa *
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="empresa"
+                  name="empresa"
+                  value={formData.empresa}
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                  placeholder="Seu nome completo"
+                  placeholder="Nome da sua empresa"
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  E-mail Profissional *
+                  E-mail *
                 </label>
                 <input
                   type="email"
@@ -203,76 +192,23 @@ const FinalCTA = () => {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Telefone/WhatsApp *
+                <label htmlFor="mensagem" className="block text-sm font-medium text-gray-700 mb-2">
+                  Mensagem
                 </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  value={formData.mensagem}
                   onChange={handleInputChange}
-                  required
+                  rows={4}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                  placeholder="(11) 99999-9999"
+                  placeholder="Conte-nos mais sobre suas necessidades..."
                 />
-              </div>
-
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                  Nome da Empresa *
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                  placeholder="Nome da sua empresa"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
-                  Cidade (Opcional)
-                </label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                  placeholder="Sua cidade"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="sector" className="block text-sm font-medium text-gray-700 mb-2">
-                  Setor de Atuação (Opcional)
-                </label>
-                <select 
-                  id="sector"
-                  name="sector"
-                  value={formData.sector}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                >
-                  <option value="">Selecione seu setor</option>
-                  <option value="saude">Saúde/Clínicas</option>
-                  <option value="juridico">Jurídico</option>
-                  <option value="restaurante">Restaurantes</option>
-                  <option value="varejo">Varejo</option>
-                  <option value="servicos">Serviços</option>
-                  <option value="outros">Outros</option>
-                </select>
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting || !formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.company.trim()}
+                disabled={isSubmitting || !formData.empresa.trim() || !formData.email.trim()}
                 className="w-full bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 transition-colors font-bold text-lg flex items-center justify-center space-x-2 group disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span>{isSubmitting ? 'Enviando...' : 'Agendar Minha Análise Gratuita'}</span>

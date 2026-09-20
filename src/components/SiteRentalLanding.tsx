@@ -28,10 +28,9 @@ const SiteRentalLanding = () => {
   const [activeTab, setActiveTab] = useState<'mensal' | 'anual'>('mensal');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formData, setFormData] = useState({
-    nome: '',
+    empresa: '',
     email: '',
-    telefone: '',
-    plano: 'ESSENCIAL'
+    mensagem: ''
   });
 
   const plans = [
@@ -206,7 +205,7 @@ const SiteRentalLanding = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Olá! Quero contratar o plano ${formData.plano}.\n\nNome: ${formData.nome}\nEmail: ${formData.email}\nTelefone: ${formData.telefone}`;
+    const message = `Olá! Quero saber mais sobre o aluguel de sites.\n\nEmpresa: ${formData.empresa}\nEmail: ${formData.email}\nMensagem: ${formData.mensagem}`;
     const whatsappUrl = `https://wa.me/5194373376?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -667,14 +666,14 @@ const SiteRentalLanding = () => {
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Nome</label>
+                  <label className="block text-gray-700 font-semibold mb-2">Nome da Empresa</label>
                   <input
                     type="text"
                     required
-                    value={formData.nome}
-                    onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+                    value={formData.empresa}
+                    onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                    placeholder="Seu nome completo"
+                    placeholder="Nome da sua empresa"
                   />
                 </div>
 
@@ -691,29 +690,15 @@ const SiteRentalLanding = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">WhatsApp</label>
-                  <input
-                    type="tel"
+                  <label className="block text-gray-700 font-semibold mb-2">Mensagem</label>
+                  <textarea
                     required
-                    value={formData.telefone}
-                    onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
+                    value={formData.mensagem}
+                    onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
+                    rows={4}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                    placeholder="(11) 99999-9999"
+                    placeholder="Conte-nos mais sobre suas necessidades..."
                   />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Plano de Interesse</label>
-                  <select
-                    value={formData.plano}
-                    onChange={(e) => setFormData({ ...formData, plano: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                  >
-                    <option value="START">START - R$ 97/mês</option>
-                    <option value="ESSENCIAL">ESSENCIAL - R$ 147/mês</option>
-                    <option value="PROFISSIONAL">PROFISSIONAL - R$ 247/mês</option>
-                    <option value="PREMIUM">PREMIUM - R$ 397/mês</option>
-                  </select>
                 </div>
 
                 <button

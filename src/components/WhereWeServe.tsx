@@ -4,11 +4,9 @@ import SEOHead from './SEOHead';
 
 const WhereWeServe = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    empresa: '',
     email: '',
-    phone: '',
-    company: '',
-    city: ''
+    mensagem: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
@@ -18,7 +16,7 @@ const WhereWeServe = () => {
     window.location.href = '/contact';
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -37,7 +35,7 @@ const WhereWeServe = () => {
     };
 
     // Validar campos obrigatórios
-    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.company.trim()) {
+    if (!formData.empresa.trim() || !formData.email.trim()) {
       setSubmitMessage('Por favor, preencha todos os campos obrigatórios.');
       setIsSubmitting(false);
       return;
@@ -52,16 +50,14 @@ const WhereWeServe = () => {
     }
     // Criar payload apenas com dados preenchidos pelo usuário
     const payload: Record<string, string> = {};
-    
+
     // Campos obrigatórios
-    payload.nome = sanitizeInput(formData.name);
+    payload.empresa = sanitizeInput(formData.empresa);
     payload.email = sanitizeInput(formData.email);
-    payload.telefone = sanitizeInput(formData.phone);
-    payload.empresa = sanitizeInput(formData.company);
-    
-    // Campos opcionais - só adiciona se preenchidos
-    if (formData.city && formData.city.trim()) {
-      payload.cidade = sanitizeInput(formData.city);
+
+    // Campo opcional
+    if (formData.mensagem && formData.mensagem.trim()) {
+      payload.mensagem = sanitizeInput(formData.mensagem);
     }
 
     console.log('📋 Dados que serão enviados para o Make (modal):', payload);
@@ -87,11 +83,9 @@ const WhereWeServe = () => {
         console.log('✅ Dados enviados com sucesso para o Make (modal)');
         setSubmitMessage('Obrigado! Seus dados foram enviados com sucesso.');
         setFormData({
-          name: '',
+          empresa: '',
           email: '',
-          phone: '',
-          company: '',
-          city: ''
+          mensagem: ''
         });
       } else {
         console.error('❌ Erro na resposta do Make (modal):', response.status);
@@ -260,18 +254,18 @@ const WhereWeServe = () => {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="modal-name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Nome Completo *
+                <label htmlFor="modal-empresa" className="block text-sm font-medium text-gray-700 mb-2">
+                  Nome da Empresa *
                 </label>
                 <input
                   type="text"
-                  id="modal-name"
-                  name="name"
-                  value={formData.name}
+                  id="modal-empresa"
+                  name="empresa"
+                  value={formData.empresa}
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                  placeholder="Seu nome completo"
+                  placeholder="Nome da sua empresa"
                 />
               </div>
 
@@ -292,50 +286,17 @@ const WhereWeServe = () => {
               </div>
 
               <div>
-                <label htmlFor="modal-phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Telefone/WhatsApp *
+                <label htmlFor="modal-mensagem" className="block text-sm font-medium text-gray-700 mb-2">
+                  Mensagem
                 </label>
-                <input
-                  type="tel"
-                  id="modal-phone"
-                  name="phone"
-                  value={formData.phone}
+                <textarea
+                  id="modal-mensagem"
+                  name="mensagem"
+                  value={formData.mensagem}
                   onChange={handleInputChange}
-                  required
+                  rows={4}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                  placeholder="(11) 99999-9999"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="modal-company" className="block text-sm font-medium text-gray-700 mb-2">
-                  Nome da Empresa *
-                </label>
-                <input
-                  type="text"
-                  id="modal-company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                  placeholder="Nome da sua empresa"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="modal-city" className="block text-sm font-medium text-gray-700 mb-2">
-                  Sua Cidade *
-                </label>
-                <input
-                  type="text"
-                  id="modal-city"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
-                  placeholder="Cidade, Estado"
+                  placeholder="Conte-nos mais sobre suas necessidades..."
                 />
               </div>
 
