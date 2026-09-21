@@ -130,12 +130,6 @@ const FinalCTA = () => {
                 </div>
               ))}
             </div>
-            <div className="bg-blue-500 bg-opacity-50 rounded-lg p-6 mt-8">
-              <h4 className="font-bold text-lg mb-2">💡 Bônus Especial</h4>
-              <p className="text-blue-100">
-                Receba nosso "Guia de Otimização GMB" exclusivo, com 20 dicas práticas para melhorar seu perfil imediatamente.
-              </p>
-            </div>
           </div>
 
           <div className="bg-white rounded-2xl p-8 shadow-2xl">
