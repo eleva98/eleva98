@@ -63,16 +63,17 @@ const FinalCTA = () => {
     }
 
     try {
+      const formDataApi = new FormData();
+      formDataApi.append('access_key', '9b813f01-34a7-4805-a8c6-f05e3e4a1b24');
+      formDataApi.append('subject', 'Nova solicitação - Análise Gratuita (Home)');
+      formDataApi.append('from_name', 'Eleve Leads');
+      Object.entries(payload).forEach(([key, value]) => {
+        formDataApi.append(key, value);
+      });
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: '9b813f01-34a7-4805-a8c6-f05e3e4a1b24',
-          subject: 'Nova solicitação - Análise Gratuita (Home)',
-          ...payload
-        })
+        body: formDataApi
       });
 
       const result = await response.json();

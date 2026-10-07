@@ -211,18 +211,17 @@ const SiteRentalLanding = () => {
     setSubmitMessage('');
 
     try {
+      const formDataApi = new FormData();
+      formDataApi.append('access_key', '9b813f01-34a7-4805-a8c6-f05e3e4a1b24');
+      formDataApi.append('subject', 'Nova solicitação - Aluguel de Sites');
+      formDataApi.append('from_name', 'Eleve Leads');
+      formDataApi.append('empresa', formData.empresa);
+      formDataApi.append('email', formData.email);
+      formDataApi.append('mensagem', formData.mensagem);
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: '9b813f01-34a7-4805-a8c6-f05e3e4a1b24',
-          subject: 'Nova solicitação - Aluguel de Sites',
-          empresa: formData.empresa,
-          email: formData.email,
-          mensagem: formData.mensagem
-        })
+        body: formDataApi
       });
 
       const result = await response.json();
