@@ -62,27 +62,22 @@ const FinalCTA = () => {
       payload.mensagem = sanitizeInput(formData.mensagem);
     }
 
-    console.log('📋 Dados que serão enviados para o Make:', payload);
-
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-      
-      const response = await fetch('https://hook.us2.make.com/xswgd4rqusxbvnlzoct3uol3gfqe5y7u', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload),
-        signal: controller.signal
+        body: JSON.stringify({
+          access_key: '9b813f01-34a7-4805-a8c6-f05e3e4a1b24',
+          subject: 'Nova solicitação - Análise Gratuita (Home)',
+          ...payload
+        })
       });
-      
-      clearTimeout(timeoutId);
 
-      console.log('📤 Resposta do Make:', response.status, response.statusText);
+      const result = await response.json();
 
-      if (response.ok) {
-        console.log('✅ Dados enviados com sucesso para o Make');
+      if (result.success) {
         setSubmitMessage('Obrigado! Seus dados foram enviados com sucesso.');
         setFormData({
           empresa: '',
@@ -90,11 +85,10 @@ const FinalCTA = () => {
           mensagem: ''
         });
       } else {
-        console.error('❌ Erro na resposta do Make:', response.status);
         setSubmitMessage('Erro ao enviar. Tente novamente ou entre em contato via WhatsApp.');
       }
     } catch (error) {
-      console.error('❌ Erro ao conectar com Make:', error);
+      console.error('Erro ao enviar formulário:', error);
       setSubmitMessage('Erro ao enviar. Tente novamente ou entre em contato via WhatsApp.');
     } finally {
       setIsSubmitting(false);

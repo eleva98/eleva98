@@ -32,6 +32,8 @@ const SiteRentalLanding = () => {
     email: '',
     mensagem: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const plans = [
     {
@@ -203,11 +205,44 @@ const SiteRentalLanding = () => {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Olá! Quero saber mais sobre o aluguel de sites.\n\nEmpresa: ${formData.empresa}\nEmail: ${formData.email}\nMensagem: ${formData.mensagem}`;
-    const whatsappUrl = `https://wa.me/5194373376?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '9b813f01-34a7-4805-a8c6-f05e3e4a1b24',
+          subject: 'Nova solicitação - Aluguel de Sites',
+          empresa: formData.empresa,
+          email: formData.email,
+          mensagem: formData.mensagem
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitMessage('Obrigado! Seus dados foram enviados com sucesso. Entraremos em contato em breve.');
+        setFormData({
+          empresa: '',
+          email: '',
+          mensagem: ''
+        });
+      } else {
+        setSubmitMessage('Erro ao enviar. Tente novamente ou entre em contato via WhatsApp.');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error);
+      setSubmitMessage('Erro ao enviar. Tente novamente ou entre em contato via WhatsApp.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleWhatsApp = (planName?: string) => {
@@ -664,6 +699,16 @@ const SiteRentalLanding = () => {
                 Solicite uma Proposta
               </h3>
 
+              {submitMessage && (
+                <div className={`mb-4 p-4 rounded-lg ${
+                  submitMessage.includes('Obrigado')
+                    ? 'bg-green-100 text-green-800'
+                    : 'bg-red-100 text-red-800'
+                }`}>
+                  {submitMessage}
+                </div>
+              )}
+
               <div className="space-y-4">
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2">Nome da Empresa</label>
@@ -703,10 +748,20 @@ const SiteRentalLanding = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-lg font-bold text-lg transition-all flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className="w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-lg font-bold text-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <MessageCircle className="w-6 h-6" />
-                  Quero Começar Agora
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      <MessageCircle className="w-6 h-6" />
+                      Quero Começar Agora
+                    </>
+                  )}
                 </button>
               </div>
             </form>

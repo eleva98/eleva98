@@ -39,24 +39,21 @@ const Contact = () => {
         return acc;
       }, {} as Record<string, string>);
 
-      console.log('📋 Dados que serão enviados para o Make (página contato):', dataToSend);
-
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-      
-      const response = await fetch('https://hook.us2.make.com/xswgd4rqusxbvnlzoct3uol3gfqe5y7u', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(dataToSend),
-        signal: controller.signal
+        body: JSON.stringify({
+          access_key: '9b813f01-34a7-4805-a8c6-f05e3e4a1b24',
+          subject: 'Novo contato - Página de Contato',
+          ...dataToSend
+        })
       });
-      
-      clearTimeout(timeoutId);
 
-      if (response.ok) {
-        console.log('✅ Dados enviados com sucesso para o Make');
+      const result = await response.json();
+
+      if (result.success) {
         setSubmitStatus('success');
         setFormData({
           empresa: '',
@@ -64,10 +61,10 @@ const Contact = () => {
           mensagem: ''
         });
       } else {
-        throw new Error('Erro na resposta do servidor');
+        throw new Error(result.message || 'Erro na resposta do servidor');
       }
     } catch (error) {
-      console.error('❌ Erro ao enviar dados para o Make:', error);
+      console.error('Erro ao enviar formulário:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
