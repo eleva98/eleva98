@@ -19,11 +19,11 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                <span className="text-blue-600">Captação de Pacientes</span> para Clínicas de Fisioterapia via Google
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <span className="text-blue-600">Mais Pacientes</span> para Sua Clínica via Google
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Somos especialistas em Google Meu Negócio e SEO Local, transformando sua presença online em resultados reais para clientes de alto valor.
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                Transformamos sua presença no Google em agendamentos reais.
               </p>
             </div>
 

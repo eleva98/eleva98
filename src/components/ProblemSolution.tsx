@@ -64,20 +64,20 @@ const ProblemSolution = () => {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Seus Clientes Procuram no Google.{' '}
-            <span className="text-red-500">Eles Encontram Você</span> ou{' '}
-            <span className="text-red-500">a Concorrência</span>?
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Seus Clientes Buscam no Google.{' '}
+            <span className="text-red-500">Encontram Você</span> ou{' '}
+            <span className="text-red-500">o Concorrente</span>?
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A maioria das empresas perde oportunidades todos os dias por não ter sua presença online otimizada. Veja como mudamos essa realidade:
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Empresas perdem oportunidades todos os dias por presença online não otimizada.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           {/* Problems */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">O Que Está Perdendo:</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">O Que Você Perde:</h3>
             {problems.map((problem, index) => (
               <div key={index} className="flex items-start space-x-4 p-6 bg-red-50 rounded-lg border border-red-100">
                 <div className={`p-3 rounded-full ${problem.color}`}>
@@ -93,7 +93,7 @@ const ProblemSolution = () => {
 
           {/* Solutions */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Como Resolvemos:</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Como Resolvemos:</h3>
             {solutions.map((solution, index) => (
               <div key={index} className="flex items-start space-x-4 p-6 bg-green-50 rounded-lg border border-green-100">
                 <div className={`p-3 rounded-full ${solution.color}`}>
@@ -112,12 +112,12 @@ const ProblemSolution = () => {
         <div className="bg-blue-600 text-white rounded-2xl p-12 text-center">
           <div className="max-w-4xl mx-auto">
             <TrendingUp className="w-16 h-16 mx-auto mb-6 text-blue-200" />
-            <h3 className="text-3xl font-bold mb-4">Impacto Comprovado</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">Impacto Comprovado</h3>
             <div className="text-6xl font-bold mb-4">
               {counter}x
             </div>
             <p className="text-xl text-blue-100">
-              Empresas com perfil otimizado no Google Meu Negócio recebem <strong>{counter}x mais cliques</strong> e geram significativamente mais leads qualificados
+              Empresas com perfil otimizado recebem <strong>{counter}x mais cliques</strong> e mais leads qualificados
             </p>
           </div>
         </div>

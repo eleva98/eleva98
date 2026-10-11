@@ -33,11 +33,11 @@ const WhyChooseUs = () => {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Por Que a <span className="text-blue-600">Eleve Leads</span>?
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Não somos apenas mais uma agência de marketing. Somos especialistas focados em resultados mensuráveis para o seu negócio.
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Especialistas focados em resultados mensuráveis. Não somos mais uma agência.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ const WhyChooseUs = () => {
         {/* Trust Badges */}
         <div className="bg-gray-50 rounded-2xl p-8">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Certificações e Parcerias</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Certificações e Parcerias</h3>
             <p className="text-gray-600">Somos reconhecidos pelos principais players do mercado</p>
           </div>
           

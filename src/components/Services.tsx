@@ -155,13 +155,12 @@ const Services = () => {
     <section id="services" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Serviços de <span className="text-blue-600">Marketing Digital</span> para{' '}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            Serviços <span className="text-blue-600">Digitais</span> para{' '}
             <span className="text-blue-600">Negócios Locais</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Especialistas em Google Meu Negócio, Criação de Sites e Google Ads. Soluções completas de SEO local,
-            desenvolvimento web e tráfego pago para empresas que querem dominar o mercado digital na sua região.
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Google Meu Negócio, SEO, Sites e Ads. Tudo para dominar sua região.
           </p>
         </div>
 
@@ -228,12 +227,11 @@ const Services = () => {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center justify-center space-x-4 mb-6">
               <Star className="w-8 h-8 text-yellow-400" />
-              <h3 className="text-3xl font-bold">Por Que Escolher a Eleve Leads?</h3>
+              <h3 className="text-2xl md:text-3xl font-bold">Por Que a Eleve Leads?</h3>
               <Star className="w-8 h-8 text-yellow-400" />
             </div>
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              Somos especialistas certificados com resultados comprovados em Google Meu Negócio, SEO Local,
-              Criação de Sites e Google Ads. Focamos em negócios locais e geramos leads qualificados com ROI demonstrado.
+            <p className="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed">
+              Especialistas certificados com resultados comprovados. Foco em leads qualificados e ROI demonstrado.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white bg-opacity-20 rounded-lg p-6">

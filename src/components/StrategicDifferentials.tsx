@@ -39,11 +39,11 @@ const StrategicDifferentials = () => {
     <section id="differentials" className="py-20 bg-gradient-to-b from-white to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Nossos Diferenciais Estratégicos
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+            Por Que Nossos Clientes Crecem
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Por que somos diferentes na geração de pacientes para fisioterapia
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Diferenciais que geram resultados, não promessas
           </p>
         </div>
 
@@ -71,11 +71,11 @@ const StrategicDifferentials = () => {
         </div>
 
         <div className="mt-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-12 text-white text-center">
-          <h3 className="text-3xl font-bold mb-4">
-            Pronto para Transformar Sua Clínica?
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            Pronto para Crescer?
           </h3>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Começamos com um diagnóstico gratuito. Analisamos sua presença atual no Google Meu Negócio, SEO Local e oportunidades de agendamentos perdidos.
+          <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Diagnóstico gratuito da sua presença no Google. Sem compromisso.
           </p>
           <button className="bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-bold text-lg">
             Solicitar Diagnóstico Gratuito

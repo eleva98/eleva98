@@ -33,11 +33,11 @@ const HowWeGenerateLead = () => {
     <section id="how-we-generate" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Transformamos buscas locais em agendamentos reais com Google Meu Negócio, SEO Local e sites tecnicamente estruturados para máxima performance no Google.
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+            De Busca Local a Agendamento Real
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Processo estratégico integrado que transforma presença online em agendamentos reais
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Processo integrado que transforma presença online em pacientes
           </p>
         </div>
 
@@ -82,11 +82,11 @@ const HowWeGenerateLead = () => {
         </div>
 
         <div className="mt-16 bg-blue-50 border border-blue-200 rounded-xl p-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Resultado: Máquina de Agendamentos Contínua
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+            Resultado: Agendamentos Todos os Dias
           </h3>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Combinamos Google Meu Negócio para visibilidade local, SEO Local para posicionamento orgânico, Google Ads para intenção imediata e Google Search Console para monitoramento técnico. O resultado? Uma estratégia integrada que gera pacientes qualificados todos os dias, com transparência total de performance.
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
+            GMB, SEO, Ads e Search Console trabalhando juntos. Pacientes qualificados diariamente, com transparência total.
           </p>
           <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
             Agendar Análise da Minha Clínica

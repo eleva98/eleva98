@@ -100,11 +100,11 @@ const FinalCTA = () => {
     <section id="contact" className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Pronto para <span className="text-yellow-400">Elevar seus Leads</span>?
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Agende uma conversa de 15 minutos, sem compromisso, e receba um diagnóstico gratuito completo do seu perfil no Google.
+          <p className="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+            Diagnóstico gratuito em 15 minutos. Sem compromisso.
           </p>
           <div className="flex items-center justify-center space-x-4 text-blue-100">
             <Clock className="w-5 h-5" />
