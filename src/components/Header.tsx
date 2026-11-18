@@ -19,42 +19,28 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleScrollToSection = (sectionId: string) => {
-    const servicePage = ['google-meu-negocio', 'criacao-de-sites', 'google-ads', 'seo'].includes(currentPage);
-
-    if (currentPage !== 'home' && !servicePage) {
-      setCurrentPage('home');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else if (currentPage === 'home' || servicePage) {
-      setCurrentPage('home');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    }
-    setIsMenuOpen(false);
-  };
+  const navItems: { page: string; label: string }[] = [
+    { page: 'home', label: 'Início' },
+    { page: 'google-meu-negocio', label: 'Google Meu Negócio' },
+    { page: 'google-ads', label: 'Google Ads' },
+    { page: 'chatbot-secretario', label: 'Chatbot Secretário' },
+    { page: 'about', label: 'Sobre' },
+    { page: 'contact', label: 'Contato' },
+  ];
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div 
-            className="flex items-center space-x-2 cursor-pointer" 
+          <div
+            className="flex items-center space-x-2 cursor-pointer"
             onClick={() => handleNavigation('home')}
           >
             <div className="h-20 md:h-36 flex items-center">
-              <img 
-                src="/eleve leads (5).png" 
-                alt="Eleva Leads" 
+              <img
+                src="/eleve leads (5).png"
+                alt="Eleva Leads"
                 className="h-20 md:h-36 w-auto object-contain drop-shadow-sm"
                 loading="eager"
                 onError={(e) => {
@@ -73,125 +59,23 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => handleNavigation('home')}
-              className={`transition-colors ${
-                currentPage === 'home' 
-                  ? 'text-blue-600 font-medium' 
-                  : 'text-gray-700 hover:text-blue-600'
-              }`}
-            >
-              Início
-            </button>
-            
-            {/* Services Dropdown */}
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-blue-600 transition-colors flex items-center space-x-1">
-                <span>Serviços</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+          <nav className="hidden lg:flex items-center space-x-6">
+            {navItems.map((item) => (
+              <button
+                key={item.page}
+                onClick={() => handleNavigation(item.page)}
+                className={`transition-colors whitespace-nowrap ${
+                  currentPage === item.page
+                    ? 'text-blue-600 font-medium'
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
+              >
+                {item.label}
               </button>
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div className="py-2">
-                  <button
-                    onClick={() => handleNavigation('google-meu-negocio')}
-                    className={`block w-full text-left px-4 py-3 hover:bg-blue-50 transition-colors ${
-                      currentPage === 'google-meu-negocio' ? 'text-blue-600 bg-blue-50' : 'text-gray-700'
-                    }`}
-                  >
-                    <div className="font-medium">Google Meu Negócio</div>
-                    <div className="text-sm text-gray-500">SEO Local e GMB</div>
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('criacao-de-sites')}
-                    className={`block w-full text-left px-4 py-3 hover:bg-purple-50 transition-colors ${
-                      currentPage === 'criacao-de-sites' ? 'text-purple-600 bg-purple-50' : 'text-gray-700'
-                    }`}
-                  >
-                    <div className="font-medium">Criação de Sites</div>
-                    <div className="text-sm text-gray-500">Alta conversão e SEO</div>
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('google-ads')}
-                    className={`block w-full text-left px-4 py-3 hover:bg-red-50 transition-colors ${
-                      currentPage === 'google-ads' ? 'text-red-600 bg-red-50' : 'text-gray-700'
-                    }`}
-                  >
-                    <div className="font-medium">Google Ads</div>
-                    <div className="text-sm text-gray-500">Campanhas locais</div>
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('seo')}
-                    className={`block w-full text-left px-4 py-3 hover:bg-green-50 transition-colors ${
-                      currentPage === 'seo' ? 'text-green-600 bg-green-50' : 'text-gray-700'
-                    }`}
-                  >
-                    <div className="font-medium">SEO</div>
-                    <div className="text-sm text-gray-500">Buscas orgânicas</div>
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('site-rental')}
-                    className={`block w-full text-left px-4 py-3 hover:bg-emerald-50 transition-colors ${
-                      currentPage === 'site-rental' ? 'text-emerald-600 bg-emerald-50' : 'text-gray-700'
-                    }`}
-                  >
-                    <div className="font-medium">Aluguel de Sites</div>
-                    <div className="text-sm text-gray-500">A partir de R$ 97/mês</div>
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('placas-inteligentes')}
-                    className={`block w-full text-left px-4 py-3 hover:bg-cyan-50 transition-colors ${
-                      currentPage === 'placas-inteligentes' ? 'text-cyan-600 bg-cyan-50' : 'text-gray-700'
-                    }`}
-                  >
-                    <div className="font-medium">Placas Inteligentes</div>
-                    <div className="text-sm text-gray-500">QR Code + NFC</div>
-                  </button>
-                </div>
-              </div>
-            </div>
-            
+            ))}
             <button
-              onClick={() => handleNavigation('blog')}
-              className={`transition-colors ${
-                currentPage === 'blog'
-                  ? 'text-blue-600 font-medium'
-                  : 'text-gray-700 hover:text-blue-600'
-              }`}
-            >
-              Blog
-            </button>
-            <button 
-              onClick={() => handleNavigation('testimonials')}
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Casos de Sucesso
-            </button>
-            <button 
-              onClick={() => handleNavigation('about')}
-              className={`transition-colors ${
-                currentPage === 'about' 
-                  ? 'text-blue-600 font-medium' 
-                  : 'text-gray-700 hover:text-blue-600'
-              }`}
-            >
-              Sobre
-            </button>
-            <button 
               onClick={() => handleNavigation('contact')}
-              className={`transition-colors ${
-                currentPage === 'contact' 
-                  ? 'text-blue-600 font-medium' 
-                  : 'text-gray-700 hover:text-blue-600'
-              }`}
-            >
-              Contato
-            </button>
-            <button 
-              onClick={() => handleNavigation('contact')}
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium whitespace-nowrap"
             >
               Diagnóstico Gratuito
             </button>
@@ -200,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -208,117 +92,24 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
-            <nav className="grid grid-cols-2 gap-x-3 gap-y-3">
-              <button 
-                onClick={() => handleNavigation('home')}
-                className={`text-left text-sm transition-colors ${
-                  currentPage === 'home' 
-                    ? 'text-blue-600 font-medium' 
-                    : 'text-gray-700 hover:text-blue-600'
-                }`}
-              >
-                Início
-              </button>
-              <button 
-                onClick={() => handleNavigation('google-meu-negocio')}
-                className={`text-left text-sm transition-colors ${
-                  currentPage === 'google-meu-negocio' 
-                    ? 'text-blue-600 font-medium' 
-                    : 'text-gray-700 hover:text-blue-600'
-                }`}
-              >
-                Google Meu Negócio
-              </button>
-              <button 
-                onClick={() => handleNavigation('criacao-de-sites')}
-                className={`text-left text-sm transition-colors ${
-                  currentPage === 'criacao-de-sites' 
-                    ? 'text-purple-600 font-medium' 
-                    : 'text-gray-700 hover:text-purple-600'
-                }`}
-              >
-                Criação de Sites
-              </button>
+          <div className="lg:hidden py-4 border-t border-gray-200">
+            <nav className="flex flex-col space-y-1">
+              {navItems.map((item) => (
+                <button
+                  key={item.page}
+                  onClick={() => handleNavigation(item.page)}
+                  className={`text-left text-base py-3 px-2 rounded-lg transition-colors ${
+                    currentPage === item.page
+                      ? 'text-blue-600 font-medium bg-blue-50'
+                      : 'text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
               <button
-                onClick={() => handleNavigation('google-ads')}
-                className={`text-left text-sm transition-colors ${
-                  currentPage === 'google-ads'
-                    ? 'text-red-600 font-medium'
-                    : 'text-gray-700 hover:text-red-600'
-                }`}
-              >
-                Google Ads
-              </button>
-              <button
-                onClick={() => handleNavigation('seo')}
-                className={`text-left text-sm transition-colors ${
-                  currentPage === 'seo'
-                    ? 'text-green-600 font-medium'
-                    : 'text-gray-700 hover:text-green-600'
-                }`}
-              >
-                SEO
-              </button>
-              <button
-                onClick={() => handleNavigation('site-rental')}
-                className={`text-left text-sm transition-colors ${
-                  currentPage === 'site-rental'
-                    ? 'text-emerald-600 font-medium'
-                    : 'text-gray-700 hover:text-emerald-600'
-                }`}
-              >
-                Aluguel de Sites
-              </button>
-              <button
-                onClick={() => handleNavigation('placas-inteligentes')}
-                className={`text-left text-sm transition-colors ${
-                  currentPage === 'placas-inteligentes'
-                    ? 'text-cyan-600 font-medium'
-                    : 'text-gray-700 hover:text-cyan-600'
-                }`}
-              >
-                Placas Inteligentes
-              </button>
-              <button
-                onClick={() => handleNavigation('blog')}
-                className={`text-left text-sm transition-colors ${
-                  currentPage === 'blog'
-                    ? 'text-blue-600 font-medium'
-                    : 'text-gray-700 hover:text-blue-600'
-                }`}
-              >
-                Blog
-              </button>
-              <button
-                onClick={() => handleScrollToSection('testimonials')}
-                className="text-gray-700 hover:text-blue-600 transition-colors text-left text-sm"
-              >
-                Casos de Sucesso
-              </button>
-              <button 
-                onClick={() => handleNavigation('about')}
-                className={`text-left text-sm transition-colors ${
-                  currentPage === 'about' 
-                    ? 'text-blue-600 font-medium' 
-                    : 'text-gray-700 hover:text-blue-600'
-                }`}
-              >
-                Sobre
-              </button>
-              <button 
                 onClick={() => handleNavigation('contact')}
-                className={`text-left text-sm transition-colors ${
-                  currentPage === 'contact' 
-                    ? 'text-blue-600 font-medium' 
-                    : 'text-gray-700 hover:text-blue-600'
-                }`}
-              >
-                Contato
-              </button>
-              <button 
-                onClick={() => handleNavigation('contact')}
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
+                className="bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium mt-2"
               >
                 Diagnóstico Gratuito
               </button>

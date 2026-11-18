@@ -16,10 +16,8 @@ import Contact from './components/Contact';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import SEOHead from './components/SEOHead';
 import GoogleMyBusinessPage from './components/GoogleMyBusinessPage';
-import WebsiteCreationPage from './components/WebsiteCreationPage';
 import GoogleAdsPage from './components/GoogleAdsPage';
-import SEOPage from './components/SEOPage';
-import SiteRentalLanding from './components/SiteRentalLanding';
+import ChatbotSecretaryPage from './components/ChatbotSecretaryPage';
 import SmartSignsPage from './components/SmartSignsPage';
 import BlogPage from './components/BlogPage';
 
@@ -27,13 +25,19 @@ function App() {
   const [currentPage, setCurrentPage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Legacy URLs (retired pages) redirect to the closest relevant page
+  const legacyPathRedirects: Record<string, string> = {
+    '/criacao-de-sites': '/google-ads',
+    '/seo': '/google-ads',
+    '/aluguel-de-sites': '/google-ads',
+    '/placas-inteligentes': '/google-meu-negocio',
+  };
+
   const getPageFromPath = (path: string): string => {
+    if (legacyPathRedirects[path]) return legacyPathRedirects[path];
     if (path === '/google-meu-negocio') return 'google-meu-negocio';
-    if (path === '/criacao-de-sites') return 'criacao-de-sites';
     if (path === '/google-ads') return 'google-ads';
-    if (path === '/seo') return 'seo';
-    if (path === '/aluguel-de-sites') return 'site-rental';
-    if (path === '/placas-inteligentes') return 'placas-inteligentes';
+    if (path === '/chatbot-secretario') return 'chatbot-secretario';
     if (path === '/blog') return 'blog';
     if (path === '/contato' || path === '/contact') return 'contact';
     if (path === '/sobre' || path === '/about') return 'about';
@@ -48,11 +52,8 @@ function App() {
     const pathMap: Record<string, string> = {
       'home': '/',
       'google-meu-negocio': '/google-meu-negocio',
-      'criacao-de-sites': '/criacao-de-sites',
       'google-ads': '/google-ads',
-      'seo': '/seo',
-      'site-rental': '/aluguel-de-sites',
-      'placas-inteligentes': '/placas-inteligentes',
+      'chatbot-secretario': '/chatbot-secretario',
       'blog': '/blog',
       'contact': '/contato',
       'about': '/sobre',
@@ -100,16 +101,10 @@ function App() {
         return <Contact />;
       case 'google-meu-negocio':
         return <GoogleMyBusinessPage setCurrentPage={setCurrentPage} />;
-      case 'criacao-de-sites':
-        return <WebsiteCreationPage setCurrentPage={setCurrentPage} />;
       case 'google-ads':
         return <GoogleAdsPage setCurrentPage={setCurrentPage} />;
-      case 'seo':
-        return <SEOPage />;
-      case 'site-rental':
-        return <SiteRentalLanding />;
-      case 'placas-inteligentes':
-        return <SmartSignsPage setCurrentPage={setCurrentPage} />;
+      case 'chatbot-secretario':
+        return <ChatbotSecretaryPage setCurrentPage={setCurrentPage} />;
       case 'blog':
         return <BlogPage setCurrentPage={setCurrentPage} />;
       case 'testimonials':
@@ -130,13 +125,13 @@ function App() {
         return (
           <>
             <SEOHead
-              title="Serviços - Eleve Leads | Google Meu Negócio, SEO Local e Sites"
-              description="Conheça nossos serviços especializados: Google Meu Negócio, SEO Local, Criação de Sites, Google Ads e Aluguel de Sites."
-              keywords="serviços marketing digital, google meu negócio, seo local, criação sites"
+              title="Serviços - Eleve Leads | Google Meu Negócio, Google Ads e Chatbot Secretário"
+              description="Conheça nossas soluções: Google Meu Negócio, Google Ads com estrutura de conversão e Chatbot Secretário com inteligência artificial."
+              keywords="serviços marketing digital, google meu negócio, google ads, chatbot para clínicas"
               canonical="https://elevaleads.com/servicos"
             />
             <div className="pt-20">
-              <Services />
+              <Services setCurrentPage={setCurrentPage} />
             </div>
           </>
         );
@@ -149,7 +144,7 @@ function App() {
             <HowWeGenerateLead />
             <StrategicDifferentials />
             <ProblemSolution />
-            <Services />
+            <Services setCurrentPage={setCurrentPage} />
             <WhyChooseUs />
             <Testimonials />
             <FinalCTA />

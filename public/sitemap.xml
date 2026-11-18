@@ -7,7 +7,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.eleveleads.com/</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,71 +15,57 @@
   <!-- Service Pages -->
   <url>
     <loc>https://www.eleveleads.com/google-meu-negocio</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.eleveleads.com/criacao-de-sites</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.eleveleads.com/google-ads</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.eleveleads.com/seo</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.eleveleads.com/chatbot-secretario</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.eleveleads.com/aluguel-de-sites</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <!-- Company Pages -->
   <url>
     <loc>https://www.eleveleads.com/sobre</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.eleveleads.com/contato</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.eleveleads.com/onde-atendemos</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.eleveleads.com/casos-de-sucesso</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.eleveleads.com/servicos</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -87,45 +73,9 @@
   <!-- Legal Pages -->
   <url>
     <loc>https://www.eleveleads.com/politica-de-privacidade</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-  </url>
-
-  <!-- Section Anchors for better indexing -->
-  <url>
-    <loc>https://www.eleveleads.com/#como-geramos-leads</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.eleveleads.com/#diferenciais</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.eleveleads.com/#servicos</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.eleveleads.com/#depoimentos</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.eleveleads.com/#contato</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
 </urlset>

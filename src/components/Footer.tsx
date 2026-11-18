@@ -60,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
               </div>
             </div>
             <p className="text-gray-400 leading-relaxed text-xs md:text-sm text-left -mt-2">
-              Especialistas em Google Meu Negócio e SEO Local.
+              Especialistas em Google Meu Negócio, Google Ads e Chatbot Secretário com IA.
             </p>
           </div>
 
@@ -77,14 +77,6 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNavigation('criacao-de-sites')}
-                  className="hover:text-white transition-colors"
-                >
-                  Criação de Sites
-                </button>
-              </li>
-              <li>
                 <button
                   onClick={() => handleNavigation('google-ads')}
                   className="hover:text-white transition-colors"
@@ -94,26 +86,10 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
               </li>
               <li>
                 <button
-                  onClick={() => handleNavigation('seo')}
+                  onClick={() => handleNavigation('chatbot-secretario')}
                   className="hover:text-white transition-colors"
                 >
-                  SEO
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavigation('site-rental')}
-                  className="hover:text-white transition-colors"
-                >
-                  Aluguel de Sites
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavigation('placas-inteligentes')}
-                  className="hover:text-white transition-colors"
-                >
-                  Placas Inteligentes
+                  Chatbot Secretário
                 </button>
               </li>
             </ul>
